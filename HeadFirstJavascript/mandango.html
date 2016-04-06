@@ -21,8 +21,8 @@
 			}
 			else {
 			  // Set the seat to unavailable
-              document.getElementById("seat" + (i * seats[i].length + j)).src = "./img/seat_unavail.png";
-              document.getElementById("seat" + (i * seats[i].length + j)).alt = "Unavailable seat";
+                          document.getElementById("seat" + (i * seats[i].length + j)).src = "./img/seat_unavail.png";
+              		  document.getElementById("seat" + (i * seats[i].length + j)).alt = "Unavailable seat";
 			}
 		  }
 		}
@@ -44,11 +44,11 @@
 			  // Set the saet selection and update the appearance of the seats
 			  selSeat = i * seats[i].length + j;
 			  document.getElementById("seat" + (i * seats[i].length + j)).src = "./img/seat_select.png";
-              document.getElementById("seat" + (i * seats[i].length + j)).alt = "Your seat";
-              document.getElementById("seat" + (i * seats[i].length + j + 1)).src = "./img/seat_select.png";
-              document.getElementById("seat" + (i * seats[i].length + j + 1)).alt = "Your seat";
-              document.getElementById("seat" + (i * seats[i].length + j + 2)).src = "./img/seat_select.png";
-              document.getElementById("seat" + (i * seats[i].length + j + 2)).alt = "Your seat";
+              		  document.getElementById("seat" + (i * seats[i].length + j)).alt = "Your seat";
+              		  document.getElementById("seat" + (i * seats[i].length + j + 1)).src = "./img/seat_select.png";
+              		  document.getElementById("seat" + (i * seats[i].length + j + 1)).alt = "Your seat";
+              		  document.getElementById("seat" + (i * seats[i].length + j + 2)).src = "./img/seat_select.png";
+              		  document.getElementById("seat" + (i * seats[i].length + j + 2)).alt = "Your seat";
 			  
 			  // Prompt the user to accept the seats
 			  var accept = confirm("Seats" + (j+1) + " through " + (j + 3) + " in Row " + (i + 1) + " are available. Accept?");
@@ -61,11 +61,11 @@
 			    // The user rejected the seats, so clear the seat selection and keep looking
 				selSeat = -1;
 				document.getElementById("seat" + (i * seats[i].length + j)).src = "./img/seat_avail.png";
-                document.getElementById("seat" + (i * seats[i].length + j)).alt = "Available seat";
-                document.getElementById("seat" + (i * seats[i].length + j + 1)).src = "./img/seat_avail.png";
-                document.getElementById("seat" + (i * seats[i].length + j + 1)).alt = "Available seat";
-                document.getElementById("seat" + (i * seats[i].length + j + 2)).src = "./img/seat_avail.png";
-                document.getElementById("seat" + (i * seats[i].length + j + 2)).alt = "Available seat";
+                		document.getElementById("seat" + (i * seats[i].length + j)).alt = "Available seat";
+                		document.getElementById("seat" + (i * seats[i].length + j + 1)).src = "./img/seat_avail.png";
+                		document.getElementById("seat" + (i * seats[i].length + j + 1)).alt = "Available seat";
+                		document.getElementById("seat" + (i * seats[i].length + j + 2)).src = "./img/seat_avail.png";
+                		document.getElementById("seat" + (i * seats[i].length + j + 2)).alt = "Available seat";
 			  }
 			}
 		  }
