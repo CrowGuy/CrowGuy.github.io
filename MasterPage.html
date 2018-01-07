@@ -9,13 +9,91 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
         
         <title>Randy's Blog</title>
+		<style>
+		body {background-color: #FCFFF5;}
+		.header {
+			background-color: #193441;
+		}
+		.blogName {
+			font-family: monospace;
+			font-size: 3.5em;
+			color: #FCFFF5;
+			padding-top: 3%;
+		}
+		.blogHint {
+			font-family: cursive;
+			font-style: oblique;
+			color: #CBDBD7;
+			padding-left: 5%;
+			padding-bottom: 1%;
+		}
+		.menu {background-color: #91AAB4;}
+		/* change the link color */
+		.navbar-custom .navbar-nav .nav-link {
+			font-family: monospace;
+			font-size: 1.35em;
+			font-weight: bold;
+			color: #3E606F;
+		}
+		/* change the color of active or hovered links */
+		.navbar-custom .nav-item.active .nav-link {color: #FCFFF5;}
+		.navbar-custom .nav-item:hover .nav-link {color: #CBDBD7;}
+		
+		.footer {
+			background-color: #100000;
+			color: #FFFFFF;
+			padding-top: 1%;
+			padding-bottom: 0.5%;
+		}
+		</style>
     </head>
     <body>
-	<div class="header"></div>
+		<div id="frame" class="row justify-content-center">
+			<div class="header col-md-8 row">
+				<div class="col-md">
+					<h1 class="blogName">Randy's blog</h1>
+				</div>
+				<div class="w-100"></div>
+				<div class="col-md">
+					<h5 class="blogHint">Bring on the hardship, and enjoy it.</h5>
+				</div>
+			</div>
+			<div class="w-100"></div>
+			<div class="menu col-md-8">
+				<nav class="navbar navbar-expand-lg navbar-custom">
+					<div class="collapse navbar-collapse">
+						<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+							<li class="nav-item active">
+								<a class="nav-link" href="index.html">Blog</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="about.html">About</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="archives.html">Archives</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" target="blank" href="https://github.com/CrowGuy">Github</a>
+							</li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+			<div class="w-100"></div>
+			<div class="content col-8">
+		
+			</div>
+			<div class="w-100"></div>
+			<div class="footer col-8 row">
+				<div class="col">
+					<h5 class="text-center">Copywright © 2018 CrowGuy</h5>
+				</div>
+			</div>
+		</div>	
 
-        <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<!-- Optional JavaScript -->
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
     </body>
