@@ -10,9 +10,22 @@
         
         <title>Randy's Blog</title>
 		<style>
-		body {background-color: #FCFFEB;}
-		.header {
+		html {
+			position: relative;
+			height: 100%;
+		}
+		body {
+			background-color: #FCFFEB; 
+			margin-bottom: 60px; /* Margin bottom by footer height */
+			overflow-x: hidden;
+			height: 100%;
+			min-height: 100%;
+		}
+		.header .wraper .col-md-8{
 			background-color: #193441;
+		}
+		.header .menu .col-md-8{
+			background-color: #91AAB4;
 		}
 		.blogName {
 			font-family: monospace;
@@ -27,7 +40,6 @@
 			padding-left: 5%;
 			padding-bottom: 1%;
 		}
-		.menu {background-color: #91AAB4;}
 		/* change the link color */
 		.navbar-custom .navbar-nav .nav-link {
 			font-family: monospace;
@@ -38,114 +50,131 @@
 		/* change the color of active or hovered links */
 		.navbar-custom .nav-item.active .nav-link {color: #FCFFF5;}
 		.navbar-custom .nav-item:hover .nav-link {color: #CBDBD7;}
-		.content {background-color: #FFFFFF;}
 		.footer {
+			width: 100%;
+			height: 60px; /* Set the fixed height of the footer here */
+			line-height: 60px; /* Vertically center the text there */
+		}
+		.footer .row .col-8{
 			background-color: #100000;
 			color: #FFFFFF;
-			padding-top: 1%;
-			padding-bottom: 0.5%;
 		}
+		.main {height: 100%;}
+		.main .row {height: 100%;}
+		.content .col-md-8 {background-color: #FFFFFF; height: 100%;}
 		.side img{
 			display: block;
 			margin-right: auto;
 			margin-left: auto;
 		}
 		.side h4{
+			padding-top: 3%;
 			font-family: monospace;
 		} 
 		</style>
     </head>
     <body>
-		<div id="frame" class="row justify-content-center">
-			<div class="header col-md-8 row">
-				<div class="col-md">
-					<h1 class="blogName">Randy's blog</h1>
-				</div>
-				<div class="w-100"></div>
-				<div class="col-md">
-					<h5 class="blogHint">Bring on the hardship, and enjoy it.</h5>
+		<!-- Header -->
+		<header class="header">
+			<div class="wraper row justify-content-center">
+				<div class="col-md-8 row">
+					<div class="col-md">
+						<h1 class="blogName">Randy's blog</h1>
+					</div>
+					<div class="w-100"></div>
+					<div class="col-md">
+						<h5 class="blogHint">Bring on the hardship, and enjoy it.</h5>
+					</div>
 				</div>
 			</div>
-			<div class="w-100"></div>
-			<div class="menu col-md-8">
-				<nav class="navbar navbar-expand-lg navbar-custom">
-					<div class="collapse navbar-collapse">
-						<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-							<li class="nav-item active">
-								<a class="nav-link" href="index.html">Blog</a>
+			<div class="menu row justify-content-center">
+				<div class="col-md-8">
+					<nav class="navbar navbar-expand-lg navbar-custom">
+						<div class="collapse navbar-collapse">
+							<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+								<li class="nav-item active">
+									<a class="nav-link" href="index.html">Blog</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="about.html">About</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="archives.html">Archives</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" target="blank" href="https://github.com/CrowGuy">Github</a>
+								</li>
+							</ul>
+						</div>
+					</nav>
+				</div>
+			</div>
+		</header>
+		<!-- Contents -->
+		<main role="main" class="main">
+			<div class="content row justify-content-center">
+				<div class="col-md-8 row">
+					<div class="col-md-9">
+						<div class="list-group" style="padding-top:4%;padding-bottom:3%;">
+							<a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
+								<div class="d-flex w-100 justify-content-between">
+									<h5 class="mb-1">List group item heading</h5>
+									<small>3 days ago</small>
+								</div>
+								<p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+								<small>Donec id elit non mi porta.</small>
+							</a>
+							<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+								<div class="d-flex w-100 justify-content-between">
+									<h5 class="mb-1">List group item heading</h5>
+									<small class="text-muted">3 days ago</small>
+								</div>
+								<p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+								<small class="text-muted">Donec id elit non mi porta.</small>
+							</a>
+							<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+								<div class="d-flex w-100 justify-content-between">
+									<h5 class="mb-1">List group item heading</h5>
+									<small class="text-muted">3 days ago</small>
+								</div>
+								<p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+								<small class="text-muted">Donec id elit non mi porta.</small>
+							</a>
+						</div>
+					</div>
+					<div class="side col-md-3">
+						<h4>About me</h4>
+						<img src="https://gss0.baidu.com/-Po3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/d439b6003af33a87ba53316fc05c10385343b58c.jpg" class="img-thumbnail" alt="Crow">
+						<p>初出茅廬，請多指教</p>
+						<hr class="center"></hr>
+						<h4>Categories</h4>
+						<ul class="list-group" style="padding-top:3%;padding-bottom:10%;">
+							<li class="list-group-item justify-content-between">
+								Cras justo odio
+								<span class="badge badge-default badge-pill">14</span>
 							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="about.html">About</a>
+							<li class="list-group-item justify-content-between">
+								Dapibus ac facilisis in
+								<span class="badge badge-default badge-pill">2</span>
 							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="archives.html">Archives</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" target="blank" href="https://github.com/CrowGuy">Github</a>
+							<li class="list-group-item justify-content-between">
+								Morbi leo risus
+								<span class="badge badge-default badge-pill">1</span>
 							</li>
 						</ul>
 					</div>
-				</nav>
-			</div>
-			<div class="w-100"></div>
-			<div class="content col-8 row">
-				<div class="col-md-9">
-					<div class="list-group" style="padding-top:4%;padding-bottom:3%;">
-						<a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
-							<div class="d-flex w-100 justify-content-between">
-								<h5 class="mb-1">List group item heading</h5>
-								<small>3 days ago</small>
-							</div>
-							<p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-							<small>Donec id elit non mi porta.</small>
-						</a>
-						<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-							<div class="d-flex w-100 justify-content-between">
-								<h5 class="mb-1">List group item heading</h5>
-								<small class="text-muted">3 days ago</small>
-							</div>
-							<p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-							<small class="text-muted">Donec id elit non mi porta.</small>
-						</a>
-						<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-							<div class="d-flex w-100 justify-content-between">
-								<h5 class="mb-1">List group item heading</h5>
-								<small class="text-muted">3 days ago</small>
-							</div>
-							<p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-							<small class="text-muted">Donec id elit non mi porta.</small>
-						</a>
-					</div>
-				</div>
-				<div class="side col-md-3">
-					<h4>About me</h4>
-					<img src="https://gss0.baidu.com/-Po3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/d439b6003af33a87ba53316fc05c10385343b58c.jpg" class="img-thumbnail" alt="Crow">
-					<p>初出茅廬，請多指教</p>
-					<hr class="center"></hr>
-					<h4>Categories</h4>
-					<ul class="list-group" style="padding-top:3%;padding-bottom:10%;">
-						<li class="list-group-item justify-content-between">
-							Cras justo odio
-							<span class="badge badge-default badge-pill">14</span>
-						</li>
-						<li class="list-group-item justify-content-between">
-							Dapibus ac facilisis in
-							<span class="badge badge-default badge-pill">2</span>
-						</li>
-						<li class="list-group-item justify-content-between">
-							Morbi leo risus
-							<span class="badge badge-default badge-pill">1</span>
-						</li>
-					</ul>
 				</div>
 			</div>
-			<div class="w-100"></div>
-			<div class="footer col-8 row">
-				<div class="col">
-					<h5 class="text-center">Copywright © 2018 CrowGuy</h5>
+		</main>
+			
+		<!-- Footer -->
+		<footer class="footer">
+			<div class="row justify-content-center">
+				<div class="col-8">
+					<p class="text-center">Copywright © 2018 CrowGuy</p>
 				</div>
 			</div>
-		</div>	
+		</footer>
 
 		<!-- Optional JavaScript -->
 		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
