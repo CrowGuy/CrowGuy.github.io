@@ -128,7 +128,7 @@
 								<li>按下「Windows標誌鍵 + x」後，選擇磁碟管理。</li>
 								<li>選取欲切割的硬碟，按右鍵選取壓縮磁區，這邊我個人配置了450G，如下圖1所示。</li>
 							</ul>
-							<img class="mx-auto d-block context_img" src=".../images/imgs_dual_boot_20180225/01.jpg" title="圖1. 磁碟管理">
+							<img class="mx-auto d-block context_img" src="http://crowguy.github.io/src/images/imgs_dual_boot_20180225/01.jpg" title="圖1. 磁碟管理">
 							
 							<h5 class="chpmark">關閉Windows預設的快速啟動</h5>
 							<p>&emsp;&emsp;在Windows 8後，開始支援電源鈕的快速啟動，為了避免該功能影響到我們安裝/啟用Ubuntu，必須將該功能關閉。</p>
@@ -136,8 +136,8 @@
 								<li>按下「Windows標誌鍵 + x」後，選擇電源選項，接著點選其他電源設定，如圖2。</li>
 								<li>將「開啟快速啟動」選項取消，儲存變更，如圖3。</li>
 							</ul>
-							<img class="mx-auto d-block context_img" src="~/images/imgs_dual_boot_20180225/02.jpg" title="圖2. 其他電源設定">
-							<img class="mx-auto d-block context_img" src="~/images/imgs_dual_boot_20180225/03.jpg" title="圖3. 快速啟動取消">
+							<img class="mx-auto d-block context_img" src="http://crowguy.github.io/src/images/imgs_dual_boot_20180225/02.jpg" title="圖2. 其他電源設定">
+							<img class="mx-auto d-block context_img" src="http://crowguy.github.io/src/images/imgs_dual_boot_20180225/03.jpg" title="圖3. 快速啟動取消">
 
 							<h5 class="chpmark">進入BIOS設定</h5>
 							<p>&emsp;&emsp;重新開機，根據不一樣廠牌的電腦，在開機畫面有不同的快捷鍵進入BIOS(由於我的電腦是Acer快捷鍵為F2)，因為是第一次進入BIOS，系統會要求你先設定Spuervisor password，緊接著針對USB安裝Ubuntu進行設定。</p>
@@ -147,10 +147,10 @@
 								<li>關閉Secure Boot，儲存設定，並重新開機，如圖6所示。</li>
 								<li>開機過程按下F12，選擇以USB開機，如圖7所示。</li>
 							</ul>
-							<img class="mx-auto d-block context_img" src="~/images/imgs_dual_boot_20180225/04.jpg" title="圖4. 設定Spuervisor password">
-							<img class="mx-auto d-block context_img" src="~/images/imgs_dual_boot_20180225/05.jpg" title="圖5. F12 Boot Menu Enabled">
-							<img class="mx-auto d-block context_img" src="~/images/imgs_dual_boot_20180225/06.jpg" title="圖6. Secure Boot Disabled">
-							<img class="mx-auto d-block context_img" src="~/images/imgs_dual_boot_20180225/07.jpg" title="圖7. USB開機">
+							<img class="mx-auto d-block context_img" src="http://crowguy.github.io/src/images/imgs_dual_boot_20180225/04.jpg" title="圖4. 設定Spuervisor password">
+							<img class="mx-auto d-block context_img" src="http://crowguy.github.io/src/images/imgs_dual_boot_20180225/05.jpg" title="圖5. F12 Boot Menu Enabled">
+							<img class="mx-auto d-block context_img" src="http://crowguy.github.io/src/images/imgs_dual_boot_20180225/06.jpg" title="圖6. Secure Boot Disabled">
+							<img class="mx-auto d-block context_img" src="http://crowguy.github.io/src/images/imgs_dual_boot_20180225/07.jpg" title="圖7. USB開機">
 
 							<h5 class="chpmark">安裝Ubuntu</h5>
 							<p>&emsp;&emsp;安裝的步驟依序如下方圖所示，這邊針對Ubuntu的安裝類型，以及空間配置加以說明。首先在選擇安裝類型時，請選擇「其他類型(Something else)」方便創建自己的分區。緊接著分區設定為整個安裝過程中最關鍵的步驟，底下對不同的分區加以說明。</p>
@@ -162,40 +162,40 @@
 								<li><b><i>/home</i></b>：&emsp;類型EXT4日誌文件系統(EXT4 journaling file system)，選擇邏輯分區(Logical)和空間起始位置(Beginning of this space)，這個目錄基本上就用來放置你個人文件和檔案的地方，所以配置給該目錄的空間應該盡可能大一點。</li>
 							</ul>
 							<p>在分區設定為之後，切記將引導開機的設備改成efi系統分區，因為預設是錯誤的。(以我的這個範例來說，sda5就是引導開機的設備。)完成Ubuntu的安裝之後，記得重新啟動，並卸除USB。</p>
-							<img class="mx-auto d-block context_img" src="~/images/imgs_dual_boot_20180225/08.jpg" title="圖8.">
-							<img class="mx-auto d-block context_img" src="~/images/imgs_dual_boot_20180225/09.jpg" title="圖9.">
-							<img class="mx-auto d-block context_img" src="~/images/imgs_dual_boot_20180225/10.jpg" title="圖10.">
-							<img class="mx-auto d-block context_img" src="~/images/imgs_dual_boot_20180225/11.jpg" title="圖11. 磁區分割">
-							<img class="mx-auto d-block context_img" src="~/images/imgs_dual_boot_20180225/12.jpg" title="圖12. swap分區">
-							<img class="mx-auto d-block context_img" src="~/images/imgs_dual_boot_20180225/13.jpg" title="圖13. EFI系統分區">
-							<img class="mx-auto d-block context_img" src="~/images/imgs_dual_boot_20180225/14.jpg" title="圖14. /根目錄">
-							<img class="mx-auto d-block context_img" src="~/images/imgs_dual_boot_20180225/15.jpg" title="圖15. /usr">
-							<img class="mx-auto d-block context_img" src="~/images/imgs_dual_boot_20180225/16.jpg" title="圖16. /home">
-							<img class="mx-auto d-block context_img" src="~/images/imgs_dual_boot_20180225/17.jpg" title="圖17. 引導開機設備">
-							<img class="mx-auto d-block context_img" src="~/images/imgs_dual_boot_20180225/18.jpg" title="圖18.">
-							<img class="mx-auto d-block context_img" src="~/images/imgs_dual_boot_20180225/19.jpg" title="圖19.">
-							<img class="mx-auto d-block context_img" src="~/images/imgs_dual_boot_20180225/20.jpg" title="圖20.">
-							<img class="mx-auto d-block context_img" src="~/images/imgs_dual_boot_20180225/21.jpg" title="圖21.">
-							<img class="mx-auto d-block context_img" src="~/images/imgs_dual_boot_20180225/22.jpg" title="圖22.">
-							<img class="mx-auto d-block context_img" src="~/images/imgs_dual_boot_20180225/23.jpg" title="圖23.">
+							<img class="mx-auto d-block context_img" src="http://crowguy.github.io/src/images/imgs_dual_boot_20180225/08.jpg" title="圖8.">
+							<img class="mx-auto d-block context_img" src="http://crowguy.github.io/src/images/imgs_dual_boot_20180225/09.jpg" title="圖9.">
+							<img class="mx-auto d-block context_img" src="http://crowguy.github.io/src/images/imgs_dual_boot_20180225/10.jpg" title="圖10.">
+							<img class="mx-auto d-block context_img" src="http://crowguy.github.io/src/images/imgs_dual_boot_20180225/11.jpg" title="圖11. 磁區分割">
+							<img class="mx-auto d-block context_img" src="http://crowguy.github.io/src/images/imgs_dual_boot_20180225/12.jpg" title="圖12. swap分區">
+							<img class="mx-auto d-block context_img" src="http://crowguy.github.io/src/images/imgs_dual_boot_20180225/13.jpg" title="圖13. EFI系統分區">
+							<img class="mx-auto d-block context_img" src="http://crowguy.github.io/src/images/imgs_dual_boot_20180225/14.jpg" title="圖14. /根目錄">
+							<img class="mx-auto d-block context_img" src="http://crowguy.github.io/src/images/imgs_dual_boot_20180225/15.jpg" title="圖15. /usr">
+							<img class="mx-auto d-block context_img" src="http://crowguy.github.io/src/images/imgs_dual_boot_20180225/16.jpg" title="圖16. /home">
+							<img class="mx-auto d-block context_img" src="http://crowguy.github.io/src/images/imgs_dual_boot_20180225/17.jpg" title="圖17. 引導開機設備">
+							<img class="mx-auto d-block context_img" src="http://crowguy.github.io/src/images/imgs_dual_boot_20180225/18.jpg" title="圖18.">
+							<img class="mx-auto d-block context_img" src="http://crowguy.github.io/src/images/imgs_dual_boot_20180225/19.jpg" title="圖19.">
+							<img class="mx-auto d-block context_img" src="http://crowguy.github.io/src/images/imgs_dual_boot_20180225/20.jpg" title="圖20.">
+							<img class="mx-auto d-block context_img" src="http://crowguy.github.io/src/images/imgs_dual_boot_20180225/21.jpg" title="圖21.">
+							<img class="mx-auto d-block context_img" src="http://crowguy.github.io/src/images/imgs_dual_boot_20180225/22.jpg" title="圖22.">
+							<img class="mx-auto d-block context_img" src="http://crowguy.github.io/src/images/imgs_dual_boot_20180225/23.jpg" title="圖23.">
 							
 							<h5 class="chpmark">新增Ubuntu efi檔案</h5>
 							<ul>
 								<li>進入BIOS，在Security項目中選擇「Select an UEFI file as trusted for executing」。</li>
 								<li>選擇HDD0 >>EFI >>ubuntu，新增所有.efi檔案。例如:grubx64.efi 命名為 ubuntugrubx64efi。在本範例中有兩個檔案需要被新增，分別為grubx64.efi、fwupx64.efi。</li>
 							</ul>
-							<img class="mx-auto d-block context_img" src="~/images/imgs_dual_boot_20180225/24.jpg" title="圖24. Select an UEFI file as trusted for executing">
-							<img class="mx-auto d-block context_img" src="~/images/imgs_dual_boot_20180225/25.jpg" title="圖25. HDD0">
-							<img class="mx-auto d-block context_img" src="~/images/imgs_dual_boot_20180225/26.jpg" title="圖26. EFI">
-							<img class="mx-auto d-block context_img" src="~/images/imgs_dual_boot_20180225/27.jpg" title="圖27. ubuntu">
-							<img class="mx-auto d-block context_img" src="~/images/imgs_dual_boot_20180225/28.jpg" title="圖28. fwupx64.efi">
-							<img class="mx-auto d-block context_img" src="~/images/imgs_dual_boot_20180225/29.jpg" title="圖29. grubx64.efi">
+							<img class="mx-auto d-block context_img" src="http://crowguy.github.io/src/images/imgs_dual_boot_20180225/24.jpg" title="圖24. Select an UEFI file as trusted for executing">
+							<img class="mx-auto d-block context_img" src="http://crowguy.github.io/src/images/imgs_dual_boot_20180225/25.jpg" title="圖25. HDD0">
+							<img class="mx-auto d-block context_img" src="http://crowguy.github.io/src/images/imgs_dual_boot_20180225/26.jpg" title="圖26. EFI">
+							<img class="mx-auto d-block context_img" src="http://crowguy.github.io/src/images/imgs_dual_boot_20180225/27.jpg" title="圖27. ubuntu">
+							<img class="mx-auto d-block context_img" src="http://crowguy.github.io/src/images/imgs_dual_boot_20180225/28.jpg" title="圖28. fwupx64.efi">
+							<img class="mx-auto d-block context_img" src="http://crowguy.github.io/src/images/imgs_dual_boot_20180225/29.jpg" title="圖29. grubx64.efi">
 
 							<h5 class="chpmark">重新開啟Secure Boot</h5>
-							<img class="mx-auto d-block context_img" src="~/images/imgs_dual_boot_20180225/30.jpg" title="圖30. Secure Boot Enabled">
+							<img class="mx-auto d-block context_img" src="http://crowguy.github.io/src/images/imgs_dual_boot_20180225/30.jpg" title="圖30. Secure Boot Enabled">
 
 							<h5 class="chpmark">刪除supervisor password</h5>
-							<img class="mx-auto d-block context_img" src="~/images/imgs_dual_boot_20180225/31.jpg" title="圖31. 刪除supervisor password">
+							<img class="mx-auto d-block context_img" src="http://crowguy.github.io/src/images/imgs_dual_boot_20180225/31.jpg" title="圖31. 刪除supervisor password">
 
 							<h5 class="chpmark">從Boot Manager，選擇開機項目</h5>
 							<ul>
@@ -203,9 +203,9 @@
 								<li>選擇ubuntugrubx64efi，開啟ubuntu，如圖32所示。</li>
 								<li>選擇*ubuntu進行作業系統的啟動，最後便可以到登入畫面，如圖33、34所示。</li>
 							</ul>
-							<img class="mx-auto d-block context_img" src="~/images/imgs_dual_boot_20180225/32.jpg" title="圖32.">
-							<img class="mx-auto d-block context_img" src="~/images/imgs_dual_boot_20180225/33.jpg" title="圖33.">
-							<img class="mx-auto d-block context_img" src="~/images/imgs_dual_boot_20180225/34.jpg" title="圖34.">
+							<img class="mx-auto d-block context_img" src="http://crowguy.github.io/src/images/imgs_dual_boot_20180225/32.jpg" title="圖32.">
+							<img class="mx-auto d-block context_img" src="http://crowguy.github.io/src/images/imgs_dual_boot_20180225/33.jpg" title="圖33.">
+							<img class="mx-auto d-block context_img" src="http://crowguy.github.io/src/images/imgs_dual_boot_20180225/34.jpg" title="圖34.">
 						</div>
 					</div>
 				</div>
