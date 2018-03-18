@@ -1,0 +1,7 @@
+<div class="container">
+	<div class="row justify-content-center">
+		<div class="col-8 text-center">
+			<span class="text-muted">Copywright © 2018 CrowGuy</span>
+		</div>
+	</div>
+</div>
