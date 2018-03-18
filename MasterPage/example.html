@@ -18,38 +18,40 @@
   </head>
 
   <body>
-	<div id="header">
-		<div class="container">
-			<div class="jumbotron jumbotron-fluid p-3 pt-4 bg-nav">
-				<div class="col-12">
-					<h1 class="display-4 color-deeper">Randy's blog</h1>
-					<h4 class="color-deep font-italic pl-3 pb-3">Bring on the hardship, and enjoy it.</h4>
+	<header>
+		<div id="header">
+			<div class="container">
+				<div class="jumbotron jumbotron-fluid p-3 pt-4 bg-nav">
+					<div class="col-12">
+						<h1 class="display-4 color-deeper">Randy's blog</h1>
+						<h4 class="color-deep font-italic pl-3 pb-3">Bring on the hardship, and enjoy it.</h4>
+					</div>
 				</div>
+				<nav class="navbar navbar-expand-lg navbar-dark bg-jumbotron pl-5">
+					<a class="navbar-brand" href="#">Blog</a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarCollapse">
+						<ul class="navbar-nav mr-auto">
+							<li class="nav-item active">
+								<a class="nav-link" href="https://crowguy.github.io/index.html">Home</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="https://crowguy.github.io/about.html">About <span class="sr-only">(current)</span></a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="https://crowguy.github.io/archives.html">Archives</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="https://github.com/CrowGuy">Github</a>
+							</li>
+						</ul>
+					</div>
+				</nav>
 			</div>
-			<nav class="navbar navbar-expand-lg navbar-dark bg-jumbotron pl-5">
-				<a class="navbar-brand" href="#">Blog</a>
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navbarCollapse">
-					<ul class="navbar-nav mr-auto">
-						<li class="nav-item active">
-							<a class="nav-link" href="https://crowguy.github.io/index.html">Home</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="https://crowguy.github.io/about.html">About <span class="sr-only">(current)</span></a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="https://crowguy.github.io/archives.html">Archives</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="https://github.com/CrowGuy">Github</a>
-						</li>
-					</ul>
-				</div>
-			</nav>
 		</div>
-    </div>
+	</header>
 
     <!-- Begin page content -->
     <main role="main" class="container">
@@ -85,15 +87,17 @@
 	  <p class="lead">Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS. A fixed navbar has been added with <code>padding-top: 60px;</code> on the <code>body &gt; .container</code>.</p>
     </main>
 
-    <div id="footer">
-		<div class="container">
-			<div class="row justify-content-center">
-				<div class="col-8 text-center">
-					<span class="text-muted">Place sticky footer content here.</span>
+    <footer class="footer">
+		<div id="footer">
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-8 text-center">
+						<span class="text-muted">Place sticky footer content here.</span>
+					</div>
 				</div>
 			</div>
 		</div>
-    </div>
+    </footer>
 	
 
     <!-- Bootstrap core JavaScript
