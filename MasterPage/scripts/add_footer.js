@@ -7,7 +7,7 @@ function add_footer () {
 
 		if ( footer ) {
 			
-			var footer_contents = read_contents ( "MasterPage/footer_contents_test.txt" );
+			var footer_contents = read_contents ( "MasterPage/footer_contents.txt" );
 
 			if ( footer_contents ) {      
 				

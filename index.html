@@ -12,83 +12,35 @@
 		<link type="text/css" rel="Stylesheet" href="css/main.css" />
         
         <title>Randy's Blog</title>
-		<style>
-		.main {height: 100%;}
-		.main .row {height: 100%;}
-		.content .col-md-8 {background-color: #FFFFFF; height: 100%;}
-		.side img{
-			display: block;
-			margin-right: auto;
-			margin-left: auto;
-		}
-		.side h2{
-			padding-top: 3%;
-			font-family: monospace;
-		} 
-		</style>
     </head>
-    <body onload="add_header(); add_footer();">
+    <body onload="add_header(); 
+    			  add_footer();">
 		<!-- Header -->
 		<header>
 			<div id="header">
 			</div>
 		</header>
 		<!-- Contents -->
-		<main role="main" class="main">
-			<div class="content row justify-content-center">
-				<div class="col-md-8 row">
-					<!-- Left side-->
-					<div class="col-md-9">
-						<div class="list-group" style="padding-top:6%;padding-bottom:3%;">
-							<a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
-								<div class="d-flex w-100 justify-content-between">
-									<h3 class="mb-1">List group item heading</h3>
-									<small>3 days ago</small>
-								</div>
-								<p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-								<small>Donec id elit non mi porta.</small>
-							</a>
-							<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-								<div class="d-flex w-100 justify-content-between">
-									<h3 class="mb-1">List group item heading</h3>
-									<small class="text-muted">3 days ago</small>
-								</div>
-								<p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-								<small class="text-muted">Donec id elit non mi porta.</small>
-							</a>
-							<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-								<div class="d-flex w-100 justify-content-between">
-									<h3 class="mb-1">List group item heading</h3>
-									<small class="text-muted">3 days ago</small>
-								</div>
-								<p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-								<small class="text-muted">Donec id elit non mi porta.</small>
-							</a>
-						</div>
-					</div>
-					<!-- Right side-->
-					<div class="side col-md-3">
-						<h2>About me</h2>
-						<img src="https://gss0.baidu.com/-Po3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/d439b6003af33a87ba53316fc05c10385343b58c.jpg" class="img-thumbnail" alt="Crow">
-						<p>初出茅廬，請多指教</p>
-						<hr class="center"></hr>
-						<h2>Categories</h2>
-						<ul class="list-group" style="padding-top:3%;padding-bottom:10%;">
-							<li class="list-group-item justify-content-between">
-								Cras justo odio
-								<span class="badge badge-default badge-pill">14</span>
-							</li>
-							<li class="list-group-item justify-content-between">
-								Dapibus ac facilisis in
-								<span class="badge badge-default badge-pill">2</span>
-							</li>
-							<li class="list-group-item justify-content-between">
-								Morbi leo risus
-								<span class="badge badge-default badge-pill">1</span>
-							</li>
-						</ul>
-					</div>
+		<main role="main" class="container">
+			<div class="row">
+				<div class="col-md-9">
+					
 				</div>
+				<aside class="col-md-3">
+					<div class="p-3 mb-3 bg-light rounded">
+            			<h4 class="font-italic">About me</h4>
+            			<p class="mb-0"></p>
+          			</div>
+
+          			<div class="p-3">
+            			<h4 class="font-italic">Archives</h4>
+            			<ol class="list-unstyled mb-0">
+              				<li><a href="#">February 2018</a></li>
+            			</ol>
+          			</div>
+
+          			
+				</aside>
 			</div>
 		</main>
 			
@@ -97,23 +49,14 @@
 			<div id="footer">
 			</div>
     	</footer>
-
-		<!-- Optional JavaScript -->
-		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
-    	<script type="text/javascript" 
-            defer="defer" 
-            src="Scripts/place_in_outerHTML.js"></script>
-    <script type="text/javascript" 
-            defer="defer" 
-            src="Scripts/IO.js"></script>
-   <script type="text/javascript" 
-            defer="defer" 
-            src="Scripts/add_footer.js"></script>
-    <script type="text/javascript" 
-            defer="defer" 
-            src="Scripts/add_header.js"></script>
+		
+    	<script type="text/javascript" defer="defer" 
+            	src="MasterPage/scripts/place_in_outerHTML.js"></script>
+    	<script type="text/javascript" defer="defer" 
+            	src="MasterPage/scripts/IO.js"></script>
+   		<script type="text/javascript" defer="defer" 
+            	src="MasterPage/scripts/add_footer.js"></script>
+    	<script type="text/javascript" defer="defer" 
+            	src="MasterPage/scripts/add_header.js"></script>
     </body>
 </html>

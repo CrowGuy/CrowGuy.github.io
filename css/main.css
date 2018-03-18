@@ -8,29 +8,12 @@ body {
 	margin-bottom: 60px;
 }
 	
-.bg-jumbotron {
-	background-color: #193441;
-}
-	
-.bg-nav {
-	background-color: #91AAB4;
-}
-	
-.color-deeper {
-	color: #193441;
-}
-	
-.color-deep {
-	color: #3E606F;
-}
-	
-h1 {
+.font-header {
 	font-family: "Playfair Display", Georgia, "Times New Roman", serif;
 }
 	
-h4 {
+.font-subheader {
 	font-family: "cursive";
-	color: #FCFFF5;
 }	
 	
 .footer {
