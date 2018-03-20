@@ -15,6 +15,10 @@ body {
 .font-subheader {
 	font-family: "cursive";
 }	
+
+main {
+	padding-top: 2.5rem;
+}
 	
 .footer {
 	position: absolute;

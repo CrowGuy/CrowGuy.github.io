@@ -1,6 +1,6 @@
 ﻿// ******************************************************* add_header
 
-function add_header (site) {
+function add_header (site, url) {
     
 	switch(site) {
 		case "index.html":
@@ -31,8 +31,13 @@ function add_header (site) {
 
 		if ( header ) {
 			
-			var header_contents = read_contents ( "MasterPage/header_contents.txt" );
-      
+			if ( url ) {
+				var header_contents = read_contents ( url + "MasterPage/header_contents.txt" );
+			}
+			else {
+				var header_contents = read_contents ( "MasterPage/header_contents.txt" );
+			}
+			
 			if ( header_contents ) {                                 
 				
 				header_contents = header_contents.replace('{{indexMenu}}', indexMenu);
