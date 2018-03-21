@@ -9,11 +9,16 @@
 	padding-right: 1rem;
 }
 		
-.context > p, ul, li {
+.context > p {
 	font-size: 1.2em; 
 	font-family: Arial, "文泉驛正黑" , "儷黑 Pro", "微軟正黑體" ,sans-serif; 
 }
-	
+
+.context > ul > li {
+	font-size: 1.2em; 
+	font-family: Arial, "文泉驛正黑" , "儷黑 Pro", "微軟正黑體" ,sans-serif; 
+}
+
 .context > h4 {
 	color: #6771C0;
 	padding-top: 0.75rem;
