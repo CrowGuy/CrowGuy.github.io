@@ -8,13 +8,8 @@
 	color: #FFC077;
 	padding-right: 1rem;
 }
-		
-.context > p {
-	font-size: 1.2em; 
-	font-family: Arial, "文泉驛正黑" , "儷黑 Pro", "微軟正黑體" ,sans-serif; 
-}
 
-.context > ul > li {
+.context {
 	font-size: 1.2em; 
 	font-family: Arial, "文泉驛正黑" , "儷黑 Pro", "微軟正黑體" ,sans-serif; 
 }
