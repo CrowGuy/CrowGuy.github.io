@@ -14,10 +14,10 @@
 	font-family: Arial, "文泉驛正黑" , "儷黑 Pro", "微軟正黑體" ,sans-serif; 
 }
 	
-.sub_title {
+.context > h4 {
 	color: #6771C0;
 	padding-top: 0.75rem;
-	font-family: "Times New Roman", Arial, Tahoma, Helvetica, "FangSong" , "文泉驛正黑" , "儷黑 Pro", "標楷體", "微軟正黑體" ,sans-serif; 
+	font-family: "Times New Roman", Arial, Tahoma, Helvetica, "標楷體", "微軟正黑體" ,sans-serif; 
 	font-weight: bold;
 }
 	
