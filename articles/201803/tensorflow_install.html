@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link type="text/css" rel="Stylesheet" href="../../css/bootstrap.css" />
+        
+		<!-- Custom styles for this template -->
+		<link type="text/css" rel="Stylesheet" href="../../css/main.css" />
+		<link type="text/css" rel="Stylesheet" href="../../css/article.css" />
+		
+        <title>Randy's Blog</title>
+		
+    </head>
+    <body onload="add_header('dual_boot.html','../../'); 
+    			  add_footer('../../');
+				  add_aside('../../');">
+		<!-- Header -->
+		<header>
+			<div id="header">
+			</div>
+		</header>
+		<!-- Contents -->
+		<main role="main" class="container">
+			<div class="row">
+				<div class="col-md-9">
+					<h2 class="post_title text-center">TensorFlow Installation on ubuntu—Machine Learning with TensorFlow 系列(一)</h2>
+					<h5 class="date text-right">2018-03-21</h5>
+					<div class="context text-justify">
+						<p>&emsp;&emsp;因為近期掀起的AI風潮，網路上充斥著許多 TnensorFlow 教學，而個人也因為工作的關係需要接觸 TensorFlow ，因此決定把使用 TensorFlow 學習 Machine Learning 的過程寫成文章，一一記錄下來，也就是說接下來我的 Blog 會有一系列的 Machine Learning with TensorFlow 文章，還請各位大大多多指教。而本篇文章內容為，在 Ubuntu 上安裝 TensorFlow 的流程筆記。</p>
+						<p>&emsp;&emsp;在官方的安裝文件中[1]提到，Tensorflow 分別有僅支援 CPU 和支援 GPU 的版本，本篇文章對兩個不同版本的安裝流程皆會說明，並且利用Virtualenv來安裝，讓兩種本版共存於電腦中。本文章是以撰寫時間點，TensorFlow 所發布的 r1.6 最新版本安裝流程來與大家分享。首先因為我們要安裝支援 GPU 的版本前，必須先安裝一些 Nvidia 套件、驅動、工具，其步驟如下方所示：</p>
+
+						<h4>安裝 CUDA® Toolkit 9.0</h4>
+						<p>&emsp;&emsp;為了要安裝 Ubuntu 必須先製作開機 USB ，這部分由於網路上已經有許多教學文章，這邊就不在多加贅述。</p>
+						<ul>
+							<li>至[2]下載 cuda-repo-ubuntu1604-9-0-local_9.0.176-1_amd64.deb，如圖1、圖2所示。</li>
+							<li>下載 cuBLAS Patch Update，如圖3所示。</li>
+							<li>根據底下指令，安裝剛剛所下載下來的 .deb 檔。</li>
+						</ul>
+						<pre><code>$ sudo dpkg -i cuda-repo-ubuntu1604-9-0-local_9.0.176-1_amd64.deb
+$ sudo dpkg -i cuda-repo-ubuntu1604-9-0-local-cublas-performance-update_1.0-1_amd64.deb
+$ sudo dpkg -i cuda-repo-ubuntu1604-9-0-local-cublas-performance-update-2_1.0-1_amd64.deb
+$ sudo apt-key add /var/cuda-repo-<version>/7fa2af80.pub
+$ sudo apt-get update
+$ sudo apt-get install cuda
+						</code></pre>
+						<img class="mx-auto d-block context_img" src="../../images/201802/dual_boot/01.jpg" title="圖1. CUDA Toolkit 9.0下載">
+						<img class="mx-auto d-block context_img" src="../../images/201802/dual_boot/01.jpg" title="圖2. CUDA Toolkit 9.0下載">
+						<img class="mx-auto d-block context_img" src="../../images/201802/dual_boot/01.jpg" title="圖3. cuBLAS Patch Update下載">
+						
+						<h4>安裝 cuDNN v7.0.</h4>
+						<ul>
+							<li>至[3]先註冊帳號並登入下載 cuDNN v7.0.5 Runtime Library for Ubuntu16.04(Deb)，如圖4所示。</li>
+							<li>至[3]下載 cuDNN v7.0.5 Developer Library for Ubuntu16.04(Deb)，如圖4所示。</li>
+							<li>根據底下指令，安裝剛剛所下載下來的.deb檔後，重新啟動電腦。</li>
+						</ul>
+						<pre><code>$ sudo dpkg -i libcudnn7_7.0.5.15-1+cuda9.0_amd64.deb
+$ sudo dpkg -i libcudnn7-dev_7.0.5.15-1+cuda9.0_amd64.deb
+						</code></pre>
+						<img class="mx-auto d-block context_img" src="../../images/201802/dual_boot/01.jpg" title="圖4. cuDNN v7.0.5下載">
+							
+						<h4>用Virtualenv安裝TensorFlow</h4>
+						<p>在 Windows 8 後，開始支援電源鈕的快速啟動，為了避免該功能影響到我們安裝/啟用 Ubuntu ，必須將該功能關閉。</p>
+						<ul>
+							<li>根據底下的指令，安裝 pip 和 Virtualenv</li>
+						</ul>
+						<pre><code>$ sudo apt-get install python-pip python-dev python-virtualenv # for Python 2.7
+$ sudo apt-get install python3-pip python3-dev python-virtualenv # for Python 3.n
+						</pre></code>
+						
+						<ul>
+							<li>根據底下的指令，安裝 pip 和 Virtualenv</li>
+						</ul>
+						<pre><code>$ virtualenv --system-site-packages targetDirectory # for Python 2.7
+$ virtualenv --system-site-packages -p python3 targetDirectory # for Python 3.n
+						</pre></code>
+						
+						<ul>
+							<li>根據底下的指令，激活 Virtualenv 環境</li>
+						</ul>
+						<pre><code>$ source ~/tensorflow/bin/activate
+$ source ~/tf_cuda/bin/activate
+						</pre></code>
+						
+						<ul>
+							<li>根據底下的指令，安裝對應版本的 TensorFlow。</li>
+						</ul>
+						<pre><code>(tensorflow)$ pip install --upgrade tensorflow      # for Python 2.7
+(tensorflow)$ pip3 install --upgrade tensorflow     # for Python 3.n
+(tf_cuda)$ pip install --upgrade tensorflow-gpu  # for Python 2.7 and GPU
+(tf_cuda)$ pip3 install --upgrade tensorflow-gpu # for Python 3.n and GPU
+						</pre></code>
+						
+						<ul>
+							<li>根據下方指令可以離開 Virtualenv 的開發環境</li>
+						</ul>
+						<pre><code>(tensorflow)$ deactivate
+						</pre></code>
+
+						<h4>Reference</h4>
+						<p class="text-left">[1] https://www.tensorflow.org/install/install_linux</p>
+						<p class="text-left">[2] https://developer.nvidia.com/cuda-90-download-archive?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=1604&target_type=deblocal</p>
+						<p class="text-left">[3] https://developer.nvidia.com/rdp/cudnn-download</p>
+					</div>
+				</div>
+				<aside class="col-md-3">
+					<div id="aside">
+					</div>     			
+				</aside>
+			</div>
+		</main>
+			
+		<!-- Footer -->
+		<footer class="footer">
+			<div id="footer">
+			</div>
+    	</footer>
+
+		<script type="text/javascript" defer="defer" 
+            	src="../../MasterPage/scripts/place_in_outerHTML.js"></script>
+    	<script type="text/javascript" defer="defer" 
+            	src="../../MasterPage/scripts/IO.js"></script>
+   		<script type="text/javascript" defer="defer" 
+            	src="../../MasterPage/scripts/add_footer.js"></script>
+    	<script type="text/javascript" defer="defer" 
+            	src="../../MasterPage/scripts/add_header.js"></script>
+		<script type="text/javascript" defer="defer" 
+            	src="../../MasterPage/scripts/add_aside.js"></script>
+    </body>
+</html>
