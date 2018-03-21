@@ -1,26 +1,23 @@
 .post_title {
 	color: #FF8E0C;
-	font-family: NSimSun;
+	font-family: "Times New Roman", Arial, Tahoma, Helvetica, "FangSong" , "文泉驛正黑" , "儷黑 Pro", "標楷體", "微軟正黑體" ,sans-serif;
 	font-weight: bold;
 }
 
-
-.topic {
-	padding-top: 3%;
-}
-		
-.published_date {
-	color: #969696; 
-	padding-right: 4%;
+.date {
+	color: #FFC077;
+	padding-right: 1rem;
 }
 		
 .context {
 	font-size: 1.2em; 
-	padding-left: 3%; 
+	font-family: Arial, "文泉驛正黑" , "儷黑 Pro", "微軟正黑體" ,sans-serif; 
 }
 	
-.chpmark {
-	padding-top: 2%; 
+.sub_title {
+	color: #6771C0;
+	padding-top: 0.75rem;
+	font-family: "Times New Roman", Arial, Tahoma, Helvetica, "FangSong" , "文泉驛正黑" , "儷黑 Pro", "標楷體", "微軟正黑體" ,sans-serif; 
 	font-weight: bold;
 }
 	

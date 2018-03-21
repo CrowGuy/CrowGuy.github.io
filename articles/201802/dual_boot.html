@@ -27,102 +27,102 @@
 		<main role="main" class="container">
 			<div class="row">
 				<div class="col-md-9">
-					<h2 class="post_title text-center">UEFI 啟動 Ubuntu16.04 + Win10 雙系統</h1>
-					<h4 class="published_date text-right">2018-02-25</h4>
+					<h2 class="post_title text-center">UEFI 啟動 Ubuntu16.04 + Win10 雙系統</h2>
+					<h5 class="date text-right">2018-02-25</h5>
 					<div class="context text-justify">
-						<p>&emsp;&emsp;為了更深一步的學習Linux，決定在個人的筆電中安裝雙系統。在爬了多個雙系統安裝教學文章，以及多次的安裝嘗試及失敗後，決定如果成功後要把詳細的流程寫成教學文章，避免以後再走冤枉路。在爬文的過程中發現了，以前的電腦都是Legacy啟動，而目前的筆記型電腦則都是UEFI啟動，所以有些比較舊的雙系統教學文某步驟些已經不適用於當前的電腦。</p>
-						<h5 class="chpmark">環境說明</h5>
-						<p>&emsp;Laptop型號：Acer Aspire E14</p>
-						<p>&emsp;SSD：Win10家庭版</p>
-						<p>&emsp;HDD-450GB：Ubuntu 16.04.3</p>
+						<p>&emsp;&emsp;為了更深一步的學習Linux，決定在個人的筆電中安裝雙系統。在爬了多個雙系統安裝教學文章，以及多次的安裝嘗試及失敗後，決定如果成功後要把詳細的流程寫成教學文章，避免以後再走冤枉路。在爬文的過程中發現了，以前的電腦都是 Legacy 啟動，而目前的筆記型電腦則都是 UEFI 啟動，所以有些比較舊的雙系統教學文某步驟些已經不適用於當前的電腦。</p>
+						<h4 class="sub_title">環境說明</h4>
+						<p>&emsp;Laptop 型號： Acer Aspire E14</p>
+						<p>&emsp;SSD： Win10家庭版</p>
+						<p>&emsp;HDD-450GB： Ubuntu 16.04.3</p>
 
-						<h5 class="chpmark">製作iso開機USB</h5>
-						<p class="text-justify">&emsp;&emsp;為了要安裝Ubuntu必須先製作開機USB，這部分由於網路上已經有許多教學文章，這邊就不在多加贅述。</p>
+						<h4 class="sub_title">製作 iso 開機 USB</h4>
+						<p class="text-justify">&emsp;&emsp;為了要安裝 Ubuntu 必須先製作開機 USB ，這部分由於網路上已經有許多教學文章，這邊就不在多加贅述。</p>
 
-						<h5 class="chpmark">硬碟分區(在windows下)</h5>
-						<p>&emsp;&emsp;因為在Linux中並沒有C槽和D槽的概念，在安裝Ubuntu前，我們必須先在Windows下將硬碟分割出一塊未配置的空間，切記不要格式化該空間。</p>
+						<h4 class="sub_title">硬碟分區(在 windows 下)</h4>
+						<p>&emsp;&emsp;因為在 Linux 中並沒有 C 槽和 D 槽的概念，在安裝 Ubuntu 前，我們必須先在 Windows 下將硬碟分割出一塊未配置的空間，切記不要格式化該空間。</p>
 						<ul>
-							<li>按下「Windows標誌鍵 + x」後，選擇磁碟管理。</li>
-							<li>選取欲切割的硬碟，按右鍵選取壓縮磁區，這邊我個人配置了450G，如下圖1所示。</li>
+							<li>按下「Windows 標誌鍵 + x」後，選擇磁碟管理。</li>
+							<li>選取欲切割的硬碟，按右鍵選取壓縮磁區，這邊我個人配置了 450G，如下圖1所示。</li>
 						</ul>
-						<img class="mx-auto d-block context_img" src="http://crowguy.github.io/src/images/imgs_dual_boot_20180225/01.jpg" title="圖1. 磁碟管理">
+						<img class="mx-auto d-block context_img" src="../../images/201802/dual_boot/01.jpg" title="圖1. 磁碟管理">
 							
-						<h5 class="chpmark">關閉Windows預設的快速啟動</h5>
-						<p>&emsp;&emsp;在Windows 8後，開始支援電源鈕的快速啟動，為了避免該功能影響到我們安裝/啟用Ubuntu，必須將該功能關閉。</p>
+						<h4 class="sub_title">關閉 Windows 預設的快速啟動</h4>
+						<p>&emsp;&emsp;在 Windows 8 後，開始支援電源鈕的快速啟動，為了避免該功能影響到我們安裝/啟用 Ubuntu ，必須將該功能關閉。</p>
 						<ul>
-							<li>按下「Windows標誌鍵 + x」後，選擇電源選項，接著點選其他電源設定，如圖2。</li>
+							<li>按下「Windows 標誌鍵 + x」後，選擇電源選項，接著點選其他電源設定，如圖2。</li>
 							<li>將「開啟快速啟動」選項取消，儲存變更，如圖3。</li>
 						</ul>
-						<img class="mx-auto d-block context_img" src="http://crowguy.github.io/src/images/imgs_dual_boot_20180225/02.jpg" title="圖2. 其他電源設定">
-						<img class="mx-auto d-block context_img" src="http://crowguy.github.io/src/images/imgs_dual_boot_20180225/03.jpg" title="圖3. 快速啟動取消">
+						<img class="mx-auto d-block context_img" src="../../images/201802/dual_boot/02.jpg" title="圖2. 其他電源設定">
+						<img class="mx-auto d-block context_img" src="../../images/201802/dual_boot/03.jpg" title="圖3. 快速啟動取消">
 
-						<h5 class="chpmark">進入BIOS設定</h5>
-						<p>&emsp;&emsp;重新開機，根據不一樣廠牌的電腦，在開機畫面有不同的快捷鍵進入BIOS(由於我的電腦是Acer快捷鍵為F2)，因為是第一次進入BIOS，系統會要求你先設定Spuervisor password，緊接著針對USB安裝Ubuntu進行設定。</p>
+						<h4 class="sub_title">進入 BIOS 設定</h4>
+						<p>&emsp;&emsp;重新開機，根據不一樣廠牌的電腦，在開機畫面有不同的快捷鍵進入 BIOS(由於我的電腦是 Acer 快捷鍵為 F2)，因為是第一次進入 BIOS ，系統會要求你先設定 Spuervisor password ，緊接著針對 USB 安裝 Ubuntu 進行設定。</p>
 						<ul>
-							<li>設定Spuervisor password，如圖4所示。</li>
-							<li>把F12 Boot Menu設為Enabled，如圖5所示。</li>
-							<li>關閉Secure Boot，儲存設定，並重新開機，如圖6所示。</li>
-							<li>開機過程按下F12，選擇以USB開機，如圖7所示。</li>
+							<li>設定 Spuervisor password ，如圖4所示。</li>
+							<li>把 F12 Boot Menu 設為 Enabled ，如圖5所示。</li>
+							<li>關閉 Secure Boot，儲存設定，並重新開機，如圖6所示。</li>
+							<li>開機過程按下 F12，選擇以 USB 開機，如圖7所示。</li>
 						</ul>
-						<img class="mx-auto d-block context_img" src="http://crowguy.github.io/src/images/imgs_dual_boot_20180225/04.jpg" title="圖4. 設定Spuervisor password">
-						<img class="mx-auto d-block context_img" src="http://crowguy.github.io/src/images/imgs_dual_boot_20180225/05.jpg" title="圖5. F12 Boot Menu Enabled">
-						<img class="mx-auto d-block context_img" src="http://crowguy.github.io/src/images/imgs_dual_boot_20180225/06.jpg" title="圖6. Secure Boot Disabled">
-						<img class="mx-auto d-block context_img" src="http://crowguy.github.io/src/images/imgs_dual_boot_20180225/07.jpg" title="圖7. USB開機">
+						<img class="mx-auto d-block context_img" src="../../images/201802/dual_boot/04.jpg" title="圖4. 設定Spuervisor password">
+						<img class="mx-auto d-block context_img" src="../../images/201802/dual_boot/05.jpg" title="圖5. F12 Boot Menu Enabled">
+						<img class="mx-auto d-block context_img" src="../../images/201802/dual_boot/06.jpg" title="圖6. Secure Boot Disabled">
+						<img class="mx-auto d-block context_img" src="../../images/201802/dual_boot/07.jpg" title="圖7. USB開機">
 
-						<h5 class="chpmark">安裝Ubuntu</h5>
+						<h4 class="sub_title">安裝 Ubuntu </h4>
 						<p>&emsp;&emsp;安裝的步驟依序如下方圖所示，這邊針對Ubuntu的安裝類型，以及空間配置加以說明。首先在選擇安裝類型時，請選擇「其他類型(Something else)」方便創建自己的分區。緊接著分區設定為整個安裝過程中最關鍵的步驟，底下對不同的分區加以說明。</p>
 						<ul>
 							<li ><b><i>swap area</i></b>：&emsp;虛擬記憶體的空間，選擇主分區(Primary)和空間起始位置(Beginning of this space)。根據其他教學文的建議，這邊分配的大小最好為實體記憶體大小的2倍，像在這個範例中，我就配置了16G給swap，因為我有8G的記憶體。</li>
-							<li><b><i>efi系統分區</i></b>：&emsp;因為要使用UEFI來啟動Ubuntu，所以必須建立efi系統分區來取代傳統的/boot掛載，請選擇邏輯分區(Logical)和空間起始位置(Beginning of this space)，配置的大小不要超過256MB，這邊個人的配置512MB提供大家參考。</li>
-							<li><b><i>/ 根目錄</i></b>：&emsp;掛載根目錄，類型為EXT4日誌文件系統(EXT4 journaling file system)，選擇邏輯分區(Logical)和空間起始位置(Beginning of this space)，這邊的空間配置最好不要低於8G，這邊個人的配置16G提供大家參考。</li>
-							<li><b><i>/usr</i></b>：&emsp;類型EXT4日誌文件系統(EXT4 journaling file system)，選擇邏輯分區(Logical)和空間起始位置(Beginning of this space)，這個目錄為軟體的安裝位置，這邊個人的配置64G提供大家參考。</li>
-							<li><b><i>/home</i></b>：&emsp;類型EXT4日誌文件系統(EXT4 journaling file system)，選擇邏輯分區(Logical)和空間起始位置(Beginning of this space)，這個目錄基本上就用來放置你個人文件和檔案的地方，所以配置給該目錄的空間應該盡可能大一點。</li>
+							<li><b><i>efi系統分區</i></b>：&emsp;因為要使用UEFI來啟動Ubuntu，所以必須建立efi系統分區來取代傳統的/boot掛載，請選擇邏輯分區(Logical)和空間起始位置(Beginning of this space)，配置的大小不要超過 256MB ，這邊個人的配置 512MB 提供大家參考。</li>
+							<li><b><i>/ 根目錄</i></b>：&emsp;掛載根目錄，類型為 EXT4 日誌文件系統(EXT4 journaling file system)，選擇邏輯分區(Logical)和空間起始位置(Beginning of this space)，這邊的空間配置最好不要低於 8G ，這邊個人的配置 16G 提供大家參考。</li>
+							<li><b><i>/usr</i></b>：&emsp;類型 EXT4 日誌文件系統(EXT4 journaling file system)，選擇邏輯分區(Logical)和空間起始位置(Beginning of this space)，這個目錄為軟體的安裝位置，這邊個人的配置 64G 提供大家參考。</li>
+							<li><b><i>/home</i></b>：&emsp;類型 EXT4 日誌文件系統(EXT4 journaling file system)，選擇邏輯分區(Logical)和空間起始位置(Beginning of this space)，這個目錄基本上就用來放置你個人文件和檔案的地方，所以配置給該目錄的空間應該盡可能大一點。</li>
 						</ul>
-						<p>在分區設定為之後，切記將引導開機的設備改成efi系統分區，因為預設是錯誤的。(以我的這個範例來說，sda5就是引導開機的設備。)完成Ubuntu的安裝之後，記得重新啟動，並卸除USB。</p>
-						<img class="mx-auto d-block context_img" src="http://crowguy.github.io/src/images/imgs_dual_boot_20180225/08.jpg" title="圖8.">
-						<img class="mx-auto d-block context_img" src="http://crowguy.github.io/src/images/imgs_dual_boot_20180225/09.jpg" title="圖9.">
-						<img class="mx-auto d-block context_img" src="http://crowguy.github.io/src/images/imgs_dual_boot_20180225/10.jpg" title="圖10.">
-						<img class="mx-auto d-block context_img" src="http://crowguy.github.io/src/images/imgs_dual_boot_20180225/11.jpg" title="圖11. 磁區分割">
-						<img class="mx-auto d-block context_img" src="http://crowguy.github.io/src/images/imgs_dual_boot_20180225/12.jpg" title="圖12. swap分區">
-						<img class="mx-auto d-block context_img" src="http://crowguy.github.io/src/images/imgs_dual_boot_20180225/13.jpg" title="圖13. EFI系統分區">
-						<img class="mx-auto d-block context_img" src="http://crowguy.github.io/src/images/imgs_dual_boot_20180225/14.jpg" title="圖14. /根目錄">
-						<img class="mx-auto d-block context_img" src="http://crowguy.github.io/src/images/imgs_dual_boot_20180225/15.jpg" title="圖15. /usr">
-						<img class="mx-auto d-block context_img" src="http://crowguy.github.io/src/images/imgs_dual_boot_20180225/16.jpg" title="圖16. /home">
-						<img class="mx-auto d-block context_img" src="http://crowguy.github.io/src/images/imgs_dual_boot_20180225/17.jpg" title="圖17. 引導開機設備">
-						<img class="mx-auto d-block context_img" src="http://crowguy.github.io/src/images/imgs_dual_boot_20180225/18.jpg" title="圖18.">
-						<img class="mx-auto d-block context_img" src="http://crowguy.github.io/src/images/imgs_dual_boot_20180225/19.jpg" title="圖19.">
-						<img class="mx-auto d-block context_img" src="http://crowguy.github.io/src/images/imgs_dual_boot_20180225/20.jpg" title="圖20.">
-						<img class="mx-auto d-block context_img" src="http://crowguy.github.io/src/images/imgs_dual_boot_20180225/21.jpg" title="圖21.">
-						<img class="mx-auto d-block context_img" src="http://crowguy.github.io/src/images/imgs_dual_boot_20180225/22.jpg" title="圖22.">
-						<img class="mx-auto d-block context_img" src="http://crowguy.github.io/src/images/imgs_dual_boot_20180225/23.jpg" title="圖23.">
+						<p>在分區設定為之後，切記將引導開機的設備改成 efi 系統分區，因為預設是錯誤的。(以我的這個範例來說，sda5 就是引導開機的設備。)完成 Ubuntu 的安裝之後，記得重新啟動，並卸除 USB。</p>
+						<img class="mx-auto d-block context_img" src="../../images/201802/dual_boot/08.jpg" title="圖8.">
+						<img class="mx-auto d-block context_img" src="../../images/201802/dual_boot/09.jpg" title="圖9.">
+						<img class="mx-auto d-block context_img" src="../../images/201802/dual_boot/10.jpg" title="圖10.">
+						<img class="mx-auto d-block context_img" src="../../images/201802/dual_boot/11.jpg" title="圖11. 磁區分割">
+						<img class="mx-auto d-block context_img" src="../../images/201802/dual_boot/12.jpg" title="圖12. swap分區">
+						<img class="mx-auto d-block context_img" src="../../images/201802/dual_boot/13.jpg" title="圖13. EFI系統分區">
+						<img class="mx-auto d-block context_img" src="../../images/201802/dual_boot/14.jpg" title="圖14. /根目錄">
+						<img class="mx-auto d-block context_img" src="../../images/201802/dual_boot/15.jpg" title="圖15. /usr">
+						<img class="mx-auto d-block context_img" src="../../images/201802/dual_boot/16.jpg" title="圖16. /home">
+						<img class="mx-auto d-block context_img" src="../../images/201802/dual_boot/17.jpg" title="圖17. 引導開機設備">
+						<img class="mx-auto d-block context_img" src="../../images/201802/dual_boot/18.jpg" title="圖18.">
+						<img class="mx-auto d-block context_img" src="../../images/201802/dual_boot/19.jpg" title="圖19.">
+						<img class="mx-auto d-block context_img" src="../../images/201802/dual_boot/20.jpg" title="圖20.">
+						<img class="mx-auto d-block context_img" src="../../images/201802/dual_boot/21.jpg" title="圖21.">
+						<img class="mx-auto d-block context_img" src="../../images/201802/dual_boot/22.jpg" title="圖22.">
+						<img class="mx-auto d-block context_img" src="../../images/201802/dual_boot/23.jpg" title="圖23.">
 							
-						<h5 class="chpmark">新增Ubuntu efi檔案</h5>
+						<h4 class="sub_title">新增Ubuntu efi檔案</h4>
 						<ul>
-							<li>進入BIOS，在Security項目中選擇「Select an UEFI file as trusted for executing」。</li>
-							<li>選擇HDD0 >>EFI >>ubuntu，新增所有.efi檔案。例如:grubx64.efi 命名為 ubuntugrubx64efi。在本範例中有兩個檔案需要被新增，分別為grubx64.efi、fwupx64.efi。</li>
+							<li>進入 BIOS ，在 Security 項目中選擇「Select an UEFI file as trusted for executing」。</li>
+							<li>選擇 HDD0 >> EFI >> ubuntu，新增所有 .efi 檔案。例如:grubx64.efi 命名為 ubuntugrubx64efi。在本範例中有兩個檔案需要被新增，分別為 grubx64.efi、fwupx64.efi。</li>
 						</ul>
-						<img class="mx-auto d-block context_img" src="http://crowguy.github.io/src/images/imgs_dual_boot_20180225/24.jpg" title="圖24. Select an UEFI file as trusted for executing">
-						<img class="mx-auto d-block context_img" src="http://crowguy.github.io/src/images/imgs_dual_boot_20180225/25.jpg" title="圖25. HDD0">
-						<img class="mx-auto d-block context_img" src="http://crowguy.github.io/src/images/imgs_dual_boot_20180225/26.jpg" title="圖26. EFI">
-						<img class="mx-auto d-block context_img" src="http://crowguy.github.io/src/images/imgs_dual_boot_20180225/27.jpg" title="圖27. ubuntu">
-						<img class="mx-auto d-block context_img" src="http://crowguy.github.io/src/images/imgs_dual_boot_20180225/28.jpg" title="圖28. fwupx64.efi">
-						<img class="mx-auto d-block context_img" src="http://crowguy.github.io/src/images/imgs_dual_boot_20180225/29.jpg" title="圖29. grubx64.efi">
+						<img class="mx-auto d-block context_img" src="../../images/201802/dual_boot/24.jpg" title="圖24. Select an UEFI file as trusted for executing">
+						<img class="mx-auto d-block context_img" src="../../images/201802/dual_boot/25.jpg" title="圖25. HDD0">
+						<img class="mx-auto d-block context_img" src="../../images/201802/dual_boot/26.jpg" title="圖26. EFI">
+						<img class="mx-auto d-block context_img" src="../../images/201802/dual_boot/27.jpg" title="圖27. ubuntu">
+						<img class="mx-auto d-block context_img" src="../../images/201802/dual_boot/28.jpg" title="圖28. fwupx64.efi">
+						<img class="mx-auto d-block context_img" src="../../images/201802/dual_boot/29.jpg" title="圖29. grubx64.efi">
 
-						<h5 class="chpmark">重新開啟Secure Boot</h5>
-						<img class="mx-auto d-block context_img" src="http://crowguy.github.io/src/images/imgs_dual_boot_20180225/30.jpg" title="圖30. Secure Boot Enabled">
+						<h4 class="sub_title">重新開啟 Secure Boot</h4>
+						<img class="mx-auto d-block context_img" src="../../images/201802/dual_boot/30.jpg" title="圖30. Secure Boot Enabled">
 
-						<h5 class="chpmark">刪除supervisor password</h5>
-						<img class="mx-auto d-block context_img" src="http://crowguy.github.io/src/images/imgs_dual_boot_20180225/31.jpg" title="圖31. 刪除supervisor password">
+						<h4 class="sub_title">刪除 supervisor password</h4>
+						<img class="mx-auto d-block context_img" src="../../images/201802/dual_boot/31.jpg" title="圖31. 刪除supervisor password">
 
-						<h5 class="chpmark">從Boot Manager，選擇開機項目</h5>
+						<h4 class="sub_title">從 Boot Manager ，選擇開機項目</h4>
 						<ul>
-							<li>按F12，進入Boot Manager，如圖32所示。</li>
-							<li>選擇ubuntugrubx64efi，開啟ubuntu，如圖32所示。</li>
-							<li>選擇*ubuntu進行作業系統的啟動，最後便可以到登入畫面，如圖33、34所示。</li>
+							<li>按 F12 ，進入 Boot Manager ，如圖32所示。</li>
+							<li>選擇 ubuntugrubx64efi ，開啟 ubuntu ，如圖32所示。</li>
+							<li>選擇 *ubuntu 進行作業系統的啟動，最後便可以到登入畫面，如圖33、34所示。</li>
 						</ul>
-						<img class="mx-auto d-block context_img" src="http://crowguy.github.io/src/images/imgs_dual_boot_20180225/32.jpg" title="圖32.">
-						<img class="mx-auto d-block context_img" src="http://crowguy.github.io/src/images/imgs_dual_boot_20180225/33.jpg" title="圖33.">
-						<img class="mx-auto d-block context_img" src="http://crowguy.github.io/src/images/imgs_dual_boot_20180225/34.jpg" title="圖34.">
+						<img class="mx-auto d-block context_img" src="../../images/201802/dual_boot/32.jpg" title="圖32.">
+						<img class="mx-auto d-block context_img" src="../../images/201802/dual_boot/33.jpg" title="圖33.">
+						<img class="mx-auto d-block context_img" src="../../images/201802/dual_boot/34.jpg" title="圖34.">
 					</div>
 				</div>
 				<aside class="col-md-3">
