@@ -73,7 +73,7 @@
 						<p>&emsp;&emsp;安裝的步驟依序如下方圖所示，這邊針對Ubuntu的安裝類型，以及空間配置加以說明。首先在選擇安裝類型時，請選擇「其他類型(Something else)」方便創建自己的分區。緊接著分區設定為整個安裝過程中最關鍵的步驟，底下對不同的分區加以說明。</p>
 						<ul>
 							<li ><b><i>swap area</i></b>：&emsp;虛擬記憶體的空間，選擇主分區(Primary)和空間起始位置(Beginning of this space)。根據其他教學文的建議，這邊分配的大小最好為實體記憶體大小的2倍，像在這個範例中，我就配置了16G給swap，因為我有8G的記憶體。</li>
-							<li><b><i>efi系統分區</i></b>：&emsp;因為要使用UEFI來啟動Ubuntu，所以必須建立efi系統分區來取代傳統的/boot掛載，請選擇邏輯分區(Logical)和空間起始位置(Beginning of this space)，配置的大小不要超過 256MB ，這邊個人的配置 512MB 提供大家參考。</li>
+							<li><b><i>efi系統分區</i></b>：&emsp;因為要使用UEFI來啟動Ubuntu，所以必須建立efi系統分區來取代傳統的/boot掛載，請選擇邏輯分區(Logical)和空間起始位置(Beginning of this space)，配置的大小不要低於 256MB ，這邊個人的配置 512MB 提供大家參考。</li>
 							<li><b><i>/ 根目錄</i></b>：&emsp;掛載根目錄，類型為 EXT4 日誌文件系統(EXT4 journaling file system)，選擇邏輯分區(Logical)和空間起始位置(Beginning of this space)，這邊的空間配置最好不要低於 8G ，這邊個人的配置 16G 提供大家參考。</li>
 							<li><b><i>/usr</i></b>：&emsp;類型 EXT4 日誌文件系統(EXT4 journaling file system)，選擇邏輯分區(Logical)和空間起始位置(Beginning of this space)，這個目錄為軟體的安裝位置，這邊個人的配置 64G 提供大家參考。</li>
 							<li><b><i>/home</i></b>：&emsp;類型 EXT4 日誌文件系統(EXT4 journaling file system)，選擇邏輯分區(Logical)和空間起始位置(Beginning of this space)，這個目錄基本上就用來放置你個人文件和檔案的地方，所以配置給該目錄的空間應該盡可能大一點。</li>
@@ -123,6 +123,13 @@
 						<img class="mx-auto d-block context_img" src="../../images/201802/dual_boot/32.jpg" title="圖32.">
 						<img class="mx-auto d-block context_img" src="../../images/201802/dual_boot/33.jpg" title="圖33.">
 						<img class="mx-auto d-block context_img" src="../../images/201802/dual_boot/34.jpg" title="圖34.">
+						
+						<h4>Reference</h4>
+						<p class="text-left">[1] <a href="http://p-s.co.nz/wordpress/dual-boot-ubuntu-16-04-on-win-10-acer-aspire-e15/">http://p-s.co.nz/wordpress/dual-boot-ubuntu-16-04-on-win-10-acer-aspire-e15/</a></p>
+						<p class="text-left">[2] <a href="https://kknews.cc/zh-tw/digital/oy4xnmm.html">https://kknews.cc/zh-tw/digital/oy4xnmm.html</a></p>
+						<p class="text-left">[3] <a href="http://www.cnblogs.com/willnote/p/6725594.html">http://www.cnblogs.com/willnote/p/6725594.html</a></p>
+						<p class="text-left">[4] <a href="http://blog.csdn.net/ysy950803/article/details/52643737">http://blog.csdn.net/ysy950803/article/details/52643737</a></p>
+						<p class="text-left">[5] <a href="http://blog.csdn.net/fangjin_kl/article/details/78676948">http://blog.csdn.net/fangjin_kl/article/details/78676948</a></p>
 					</div>
 				</div>
 				<aside class="col-md-3">
