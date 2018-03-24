@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link type="text/css" rel="Stylesheet" href="../../css/bootstrap.css" />
+        
+		<!-- Custom styles for this template -->
+		<link type="text/css" rel="Stylesheet" href="../../css/main.css" />
+		<link type="text/css" rel="Stylesheet" href="../../css/article.css" />
+		
+        <title>Randy's Blog</title>
+		
+    </head>
+    <body onload="add_header('dual_boot.html','../../'); 
+    			  add_footer('../../');
+				  add_aside('../../');">
+		<!-- Header -->
+		<header>
+			<div id="header">
+			</div>
+		</header>
+		<!-- Contents -->
+		<main role="main" class="container">
+			<div class="row">
+				<div class="col-md-9">
+					<h2 class="post_title text-center">Ubuntu sudo apt-get -f install 指令的迷思</h2>
+					<h5 class="date text-right">2018-03-24</h5>
+					<div class="context text-justify">
+						<p>&emsp;&emsp;在 Ubuntu 作業系統常常會使用「dpkg」這個指令，安裝 Debian Package，而有時候會因為相依的套件未安裝，導致無法安裝，並且系統會提醒我們執行「apt-get install -f」，或者網路上有許多不負責的言論，告訴我們只要執行「apt-get install -f」或「apt-get -f install」即可修復錯誤。為了讓大家了解為什麼提出執行「apt-get install -f」是不負責任的行為，就讓我們先來好好探究「apt-get install -f」到底有何作用。</p>
+						<p>-f參數：--fix-broken，放在install前後跟後面效果是一樣的。其作用如下：</p>
+						<ul>
+							<li>修復損壞的套件</li>
+							<li>刪除錯誤的套件</li>
+							<li>安裝並補足缺乏的相依套件</li>
+						</ul>
+						
+						<p>&emsp;&emsp;我曾經體過這個指令的可怕之處，當時我在一台沒有網路的電腦上安裝 Debian Package，因為發生錯誤，於是採信網路上 Ubuntu 使用先進的建議，使用了「apt-get install -f」，因為本人在沒有仔細看完接續系統要執行的動作就按下「y」，這時候悲劇發生了，系統以相當快的速度在刪除已經安裝在系統的套件，當我回過神來已經刪了70個套件，於是我趕快中斷系統的動作，為了在沒有網路的電腦還原這些刪除的套件，我採取了底下幾個動作。</p>
+						<ul>
+							<li>用「cat /var/log/apt/history.log」，從 log 檔找出被刪除的套件。</li>
+							<li>根據這些套件名稱，用另一台電腦下載對應的 Debian Package。</li>
+							<li>將這些 Debian Package 安裝回去，並用「apt-get show package」檢查是否正確安裝。</li>
+						</ul>
+						
+						<p>&emsp;&emsp;所以，大家千萬別太過依賴「apt-get install -f」指令，當遇到缺少的相依套件未安裝時，請自行手動一一補上，再回過頭來安裝原套件。這邊提供一個在安裝套件或 Debian Package 前的 SOP 讓大家參考，如下方指令所示：</p>
+						<pre><code>sudo apt-get update
+sudo apt-get upgrade</code></pre>
+
+						<h4>Reference</h4>
+						<p class="text-left">[1] <a href="https://askubuntu.com/questions/58378/what-exactly-does-sudo-apt-get-f-install-do">https://askubuntu.com/questions/58378/what-exactly-does-sudo-apt-get-f-install-do</a></p>
+						<p class="text-left">[2] <a href="http://samwhelp.github.io/blog/read/linux/ubuntu/package/how-to-install-package/">http://samwhelp.github.io/blog/read/linux/ubuntu/package/how-to-install-package/</a></p>
+						<p class="text-left">[3] <a href="https://ubuntuforums.org/showthread.php?t=1952500">https://ubuntuforums.org/showthread.php?t=1952500</a></p>
+						<p class="text-left">[4] <a href="http://forum.ubuntu.org.cn/viewtopic.php?f=186&t=485995">http://forum.ubuntu.org.cn/viewtopic.php?f=186&t=485995</a></p>
+						<p class="text-left">[5] <a href="http://blog.csdn.net/feng98ren/article/details/78864560">http://blog.csdn.net/feng98ren/article/details/78864560</a></p>
+					</div>
+				</div>
+				<aside class="col-md-3">
+					<div id="aside">
+					</div>     			
+				</aside>
+			</div>
+		</main>
+			
+		<!-- Footer -->
+		<footer class="footer">
+			<div id="footer">
+			</div>
+    	</footer>
+
+		<script type="text/javascript" defer="defer" 
+            	src="../../MasterPage/scripts/place_in_outerHTML.js"></script>
+    	<script type="text/javascript" defer="defer" 
+            	src="../../MasterPage/scripts/IO.js"></script>
+   		<script type="text/javascript" defer="defer" 
+            	src="../../MasterPage/scripts/add_footer.js"></script>
+    	<script type="text/javascript" defer="defer" 
+            	src="../../MasterPage/scripts/add_header.js"></script>
+		<script type="text/javascript" defer="defer" 
+            	src="../../MasterPage/scripts/add_aside.js"></script>
+    </body>
+</html>
