@@ -218,7 +218,7 @@ def main(gpu_id):
     # Tensorflow automatically choose an existing device
     config.allow_soft_placement = True
     # Extend the GPU memory
-    config.gpu_options.allow_growth = True
+    config.gpu_options.allow_growth = False
     # Show the device placement log
     config.log_device_placement = True
 
