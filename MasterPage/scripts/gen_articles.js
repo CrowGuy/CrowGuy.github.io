@@ -29,6 +29,7 @@ function list_type_group (url, html_url) {
 			for (var i = 0; i < L; i++) {
 				html_text += '<li><a href="#">' + type_group_list[i].type_group + '</a></li>\n';
 			}
+			alert(html_text);
 			add_aside(html_url, html_text);
 		}
 	};
