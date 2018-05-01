@@ -1,6 +1,6 @@
 // ******************************************************* add_aside
 
-function add_aside (url) {
+function add_aside (url, archives) {
 	if ( document.getElementById ) {
 		
 		var aside = document.getElementById ( 'aside' );
@@ -17,7 +17,7 @@ function add_aside (url) {
 			}
 
 			if ( aside_contents ) {      
-				
+				aside_contents = aside_contents.replace('{{Archives}}', archives);
 				place_in_outerHTML ( aside, aside_contents );
 			}
 		}
