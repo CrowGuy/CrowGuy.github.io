@@ -72,4 +72,31 @@ function list_type_group (url, html_url) {
 	
 }
 
+function list_articles () {
+	
+	var xmlhttp = new XMLHttpRequest();
+	var json_url = "MasterPage/json/article_list.json";
+	var article_list;
+	xmlhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			article_list = JSON.parse(this.responseText);
+			article_list.reverse();
+			var L = article_list.length;
+			var html_text = "";
+			for (var i = 0; i < L; i++) {
+				html_text += '<p><a href="' + article_list[i].url + '">' + article_list[i].articles + '</a>&emsp;' + article_list[i].date + '</p>\n';
+			}
+			
+			if ( document.getElementById ) {
+				var archives_list = document.getElementById ( 'archives_list' );
 
+				if ( archives_list ) {
+					place_in_outerHTML ( archives_list, html_text );
+				}
+			}
+		}
+	};
+	xmlhttp.open("GET", json_url, true);
+	xmlhttp.send();
+	
+}
