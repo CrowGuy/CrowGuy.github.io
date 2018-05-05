@@ -2,12 +2,12 @@
 	padding-left: 3%;
 }
 
-.about > h2, h4 {
+.about > h2, .about > h4 {
 	font-family: "Times New Roman", Arial, Tahoma, Helvetica, "FangSong" , "文泉驛正黑" , "儷黑 Pro", "標楷體", "微軟正黑體" ,sans-serif;
 	font-weight: bold;
 }
 
-.about > p, ul {
+.about > p, .about > pul {
 	font-size: 1.2em;
 	font-family: Arial, "文泉驛正黑" , "儷黑 Pro", "微軟正黑體" ,sans-serif;
 }
