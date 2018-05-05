@@ -1,0 +1,39 @@
+.blog-post > h2 > a:link{
+	color: #6771C0;
+}
+
+.blog-post > h2 > a:visited{
+	color: #6771C0;
+}
+
+.blog-post > h2 > a:hover{
+	color: #FF8E0C;
+	text-decoration:none;
+}
+
+.blog-meta {
+	color: #6771C0;
+}
+
+.blog-meta > span{
+	color: #FF8E0C;
+}
+
+.blog-abstract {
+	font-size: 1.2em; 
+	font-family: Arial, "文泉驛正黑" , "儷黑 Pro", "微軟正黑體" ,sans-serif;
+}
+
+.blog-img {
+	padding-top: 1%;
+	padding-bottom: 3%;
+}
+
+hr {
+	margin-top: 3%;
+	padding-bottom: 2%;
+}
+
+.blog-pagination {
+	padding-bottom: 5%;
+}
