@@ -1,24 +1,42 @@
-function add_articles_post (url, current) {
+function add_articles_post (group_size) {
 	
 	var xmlhttp = new XMLHttpRequest();
+	var json_url = "MasterPage/json/article_list.json";
+	var url = document.location.href;
+	if (url.split('=').length > 1) {
+		var current = parseInt(url.split('=')[1]);
+	}
+	else {
+		var current = 0;
+	}
+	
+	
 	var article_list;
 	xmlhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
 			article_list = JSON.parse(this.responseText);
+			article_list.reverse();
 			var L = article_list.length;
-			var group_size = 2;
+			var next = current + 1;
 			var html_text = "";
-			for (var i = L-1; i >= 0; i--) {
-				var title = article_list[i].articles;
-				var article_url = article_list[i].url;
-				var date = article_list[i].date;
-				var type_group = article_list[i].type_group;
-				var abstracts = article_list[i].abstracts;
-				var img = article_list[i].img;
-				html_text += add_blog_post(title, article_url, date, type_group, abstracts, img);
+			for (var i = 0; i < L; i++) {
+				if (i == group_size * next) {
+					break;
+				}
+				else {
+					if (parseInt(i/group_size) == current) {
+						var title = article_list[i].articles;
+						var article_url = article_list[i].url;
+						var date = article_list[i].date;
+						var type_group = article_list[i].type_group;
+						var abstracts = article_list[i].abstracts;
+						var img = article_list[i].img;
+						html_text += add_blog_post(title, article_url, date, type_group, abstracts, img);
+					} 
+				}
 			}
 			
-			html_text += add_page(1,L,6);
+			html_text += add_page(current-1,next,L,group_size);
 			
 			if ( document.getElementById ) {
 			
@@ -30,7 +48,7 @@ function add_articles_post (url, current) {
 			}
 		}
 	};
-	xmlhttp.open("GET", url, true);
+	xmlhttp.open("GET", json_url, true);
 	xmlhttp.send();
 }
 
