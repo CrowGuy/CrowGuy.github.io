@@ -1,28 +1,36 @@
 [{
   "articles":"UEFI 啟動 Ubuntu16.04 + Win10 雙系統",
   "date": "2018-02-25",
-  "type": "February 2018",
-  "url": "/201802/dual_boot.html",
-  "abstract": "為了更深一步的學習Linux，決定在個人的筆電中安裝雙系統。在爬了多個雙系統安裝教學文章，以及多次的安裝嘗試及失敗後，決定如果成功後要把詳細的流程寫成教學文章，避免以後再走冤枉路。在爬文的過程中發現了，以前的電腦都是 Legacy 啟動，而目前的筆記型電腦則都是 UEFI 啟動，所以有些比較舊的雙系統教學文某步驟些已經不適用於當前的電腦。"
+  "date_group": "February 2018",
+  "type_group": "Operating System",
+  "url": "articles/201802/dual_boot.html",
+  "img": "#",
+  "abstracts": "為了更深一步的學習Linux，決定在個人的筆電中安裝雙系統。在爬了多個雙系統安裝教學文章，以及多次的安裝嘗試及失敗後，決定如果成功後要把詳細的流程寫成教學文章，避免以後再走冤枉路。在爬文的過程中發現了，以前的電腦都是 Legacy 啟動，而目前的筆記型電腦則都是 UEFI 啟動，所以有些比較舊的雙系統教學文某步驟些已經不適用於當前的電腦。"
 },
 {
   "articles":"TensorFlow Installation on ubuntu—Machine Learning with TensorFlow 系列(一)",
   "date": "2018-03-21",
-  "type": "March 2018",
-  "url": "/201803/tensorflow_install.html",
-  "abstract": "因為近期掀起的AI風潮，網路上充斥著許多 TnensorFlow 教學，而個人也因為工作的關係需要接觸 TensorFlow ，因此決定把使用 TensorFlow 學習 Machine Learning 的過程寫成文章，一一記錄下來，也就是說接下來我的 Blog 會有一系列的 Machine Learning with TensorFlow 文章，還請各位大大多多指教。而本篇文章內容為，在 Ubuntu 上安裝 TensorFlow 的流程筆記。"
+  "date_group": "March 2018",
+  "type_group": "Machine Learning",
+  "url": "articles/201803/tensorflow_install.html",
+  "img": "#",
+  "abstracts": "因為近期掀起的AI風潮，網路上充斥著許多 TnensorFlow 教學，而個人也因為工作的關係需要接觸 TensorFlow ，因此決定把使用 TensorFlow 學習 Machine Learning 的過程寫成文章，一一記錄下來，也就是說接下來我的 Blog 會有一系列的 Machine Learning with TensorFlow 文章，還請各位大大多多指教。而本篇文章內容為，在 Ubuntu 上安裝 TensorFlow 的流程筆記。"
 },
 {
   "articles":"Assign idle GPU device to tensorflow script automatically",
-  "date": "2018-03-2018-03-23",
-  "type": "March 2018",
-  "url": "/201803/tensorflow_gpu_auto_assign.html",
-  "abstract": "本文章主要是針對在多GPU的機器上，有多個不同的Tensorflow任務或實驗要進行時，該如何讓機器進行GPU資源的分配，本文章大致上分成三個部分與大家做分享，分別為：Tensorflow GPU 配置設定的說明；Nvidia smi 指令說明；自動指派閒置的 GPU 給新的 TensorFlow 任務。"
+  "date": "2018-03-23",
+  "date_group": "March 2018",
+  "type_group": "Machine Learning",
+  "url": "articles/201803/tensorflow_gpu_auto_assign.html",
+  "img": "#",
+  "abstracts": "本文章主要是針對在多GPU的機器上，有多個不同的Tensorflow任務或實驗要進行時，該如何讓機器進行GPU資源的分配，本文章大致上分成三個部分與大家做分享，分別為：Tensorflow GPU 配置設定的說明；Nvidia smi 指令說明；自動指派閒置的 GPU 給新的 TensorFlow 任務。"
 },
 {
   "articles":"Ubuntu sudo apt-get -f install 指令的迷思",
   "date": "2018-03-24",
-  "type": "March 2018",
-  "url": "/201803/ubuntu_install_f.html",
-  "abstract": "在 Ubuntu 作業系統常常會使用「dpkg」這個指令，安裝 Debian Package，而有時候會因為相依的套件未安裝，導致無法安裝，並且系統會提醒我們執行「apt-get install -f」，或者網路上有許多不負責的言論，告訴我們只要執行「apt-get install -f」或「apt-get -f install」即可修復錯誤。為了讓大家了解為什麼提出執行「apt-get install -f」是不負責任的行為，就讓我們先來好好探究「apt-get install -f」到底有何作用。"
+  "date_group": "March 2018",
+  "type_group": "Operating System",
+  "url": "articles/201803/ubuntu_install_f.html",
+  "img": "#",
+  "abstracts": "在 Ubuntu 作業系統常常會使用「dpkg」這個指令，安裝 Debian Package，而有時候會因為相依的套件未安裝，導致無法安裝，並且系統會提醒我們執行「apt-get install -f」，或者網路上有許多不負責的言論，告訴我們只要執行「apt-get install -f」或「apt-get -f install」即可修復錯誤。為了讓大家了解為什麼提出執行「apt-get install -f」是不負責任的行為，就讓我們先來好好探究「apt-get install -f」到底有何作用。"
 }]
