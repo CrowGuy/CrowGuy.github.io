@@ -1,0 +1,26 @@
+.about {
+	padding-left: 3%;
+}
+
+.about > h2, h4 {
+	font-family: "Times New Roman", Arial, Tahoma, Helvetica, "FangSong" , "文泉驛正黑" , "儷黑 Pro", "標楷體", "微軟正黑體" ,sans-serif;
+	font-weight: bold;
+}
+
+.about > p, ul {
+	font-size: 1.2em;
+	font-family: Arial, "文泉驛正黑" , "儷黑 Pro", "微軟正黑體" ,sans-serif;
+}
+
+.about > ul > li > a:link {
+	color: #6771C0;
+}
+
+.about > ul > li > a:visited {
+	color: #6771C0;
+}
+
+.about > ul > li > a:hover {
+	color: #FF8E0C;
+	text-decoration:none;
+}
