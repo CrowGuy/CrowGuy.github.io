@@ -10,12 +10,14 @@
 
         <!-- Custom styles for this template -->
 		<link type="text/css" rel="Stylesheet" href="css/main.css" />
+		<link type="text/css" rel="Stylesheet" href="css/archives.css" />
         
         <title>Randy's Blog</title>
     </head>
     <body onload="add_header('archives.html'); 
     			  add_footer();
-    			  list_type_group ('MasterPage/json/article_type.json');">
+    			  list_type_group('MasterPage/json/article_type.json');
+				  list_articles()">
 		<!-- Header -->
 		<header>
 			<div id="header">
@@ -25,6 +27,12 @@
 		<main role="main" class="container">
 			<div class="row">
 				<div class="col-md-9">
+					
+					<div class="archives">
+						<h2 class="text-deeper">Blog Archives</h2>
+						<hr />
+						<div id="archives_list"></div>
+					</div>
 					
 				</div>
 				<aside class="col-md-3">
