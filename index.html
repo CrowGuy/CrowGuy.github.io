@@ -10,12 +10,14 @@
 
         <!-- Custom styles for this template -->
 		<link type="text/css" rel="Stylesheet" href="css/main.css" />
+		<link type="text/css" rel="Stylesheet" href="css/blog.css" />
         
         <title>Randy's Blog</title>
     </head>
     <body onload="add_header('index.html'); 
     			  add_footer();
-    			  list_type_group ('MasterPage/json/article_type.json');">
+    			  list_type_group ('MasterPage/json/article_type.json');
+				  add_articles_post('MasterPage/json/article_list.json', 1);">
 		<!-- Header -->
 		<header>
 			<div id="header">
@@ -25,6 +27,10 @@
 		<main role="main" class="container">
 			<div class="row">
 				<div class="col-md-9">
+					
+					<!-- blog-post -->
+					<div id="article_post">
+					</div>
 					
 				</div>
 				<aside class="col-md-3">
@@ -52,5 +58,9 @@
             	src="MasterPage/scripts/add_aside.js"></script>
 		<script type="text/javascript" defer="defer" 
             	src="MasterPage/scripts/gen_articles.js"></script>
+		<script type="text/javascript" defer="defer" 
+            	src="MasterPage/scripts/add_page.js"></script>
+		<script type="text/javascript" defer="defer" 
+            	src="MasterPage/scripts/add_blog_post.js"></script>
     </body>
 </html>
