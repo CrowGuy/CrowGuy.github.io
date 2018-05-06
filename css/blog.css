@@ -11,6 +11,10 @@
 	text-decoration:none;
 }
 
+.blog-post > a {
+	border-width: thick;
+}
+
 .blog-meta {
 	color: #6771C0;
 }
@@ -36,4 +40,8 @@ hr {
 
 .blog-pagination {
 	padding-bottom: 5%;
+}
+
+.blog-pagination > div > a {
+	border-width: medium;
 }
