@@ -1,0 +1,4 @@
+<h4 class="font-italic">最新文章</h4>
+<h5><a href="{{acticleUrl}}">{{articleTitle}}</a></h5>
+<img class="news-img mx-auto d-block" src="{{articleImg}}" />
+<hr />
