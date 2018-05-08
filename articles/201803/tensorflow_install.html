@@ -17,6 +17,8 @@
     </head>
     <body onload="add_header('dual_boot.html','../../'); 
     			  add_footer('../../');
+				  add_aside('../../');
+				  add_last_article('../../');
 				  list_type_group ('../../MasterPage/json/article_type.json','../../');"">
 		<!-- Header -->
 		<header>
@@ -102,6 +104,13 @@ $ source ~/tf_cuda/bin/activate</pre></code>
 				<aside class="col-md-3">
 					<div id="aside">
 					</div>     			
+					
+					<div id="news">
+					</div>
+					
+					<div id="archives">
+					</div>
+					
 				</aside>
 			</div>
 		</main>
@@ -124,6 +133,10 @@ $ source ~/tf_cuda/bin/activate</pre></code>
             	src="../../MasterPage/scripts/add_aside.js"></script>
 		<script type="text/javascript" defer="defer" 
             	src="../../MasterPage/scripts/gen_articles.js"></script>
+		<script type="text/javascript" defer="defer" 
+            	src="../../MasterPage/scripts/add_archives.js"></script>
+		<script type="text/javascript" defer="defer" 
+            	src="../../MasterPage/scripts/add_news.js"></script>
 		<script>
 			/**
 			*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
