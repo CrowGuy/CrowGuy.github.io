@@ -93,9 +93,10 @@ function add_last_article(html_url) {
 			
 			for (var i = 0; i < 2; i++) {
 				var title = article_last[i].articles;
-				var article_url = article_last[i].url;
+				
 				if ( html_url ) {
 					var img = html_url + article_last[i].img;
+					var article_url = html_url + article_last[i].url;
 				}
 				else {
 					var img = article_last[i].img;
