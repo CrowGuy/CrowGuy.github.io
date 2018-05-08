@@ -33,9 +33,15 @@ function add_header (site, url) {
 			
 			if ( url ) {
 				var header_contents = read_contents ( url + "MasterPage/header_contents.txt" );
+				header_contents = header_contents.replace('{{indexUrl}}', url);
+				header_contents = header_contents.replace('{{aboutUrl}}', url);
+				header_contents = header_contents.replace('{{archivesUrl}}', url);
 			}
 			else {
 				var header_contents = read_contents ( "MasterPage/header_contents.txt" );
+				header_contents = header_contents.replace('{{indexUrl}}', '');
+				header_contents = header_contents.replace('{{aboutUrl}}', '');
+				header_contents = header_contents.replace('{{archivesUrl}}', '');
 			}
 			
 			if ( header_contents ) {                                 
