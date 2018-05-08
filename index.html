@@ -16,6 +16,8 @@
     </head>
     <body onload="add_header('index.html'); 
     			  add_footer();
+				  add_aside();
+				  add_last_article();
     			  list_type_group ('MasterPage/json/article_type.json');
 				  add_articles_post(6);">
 		<!-- Header -->
@@ -34,8 +36,18 @@
 					
 				</div>
 				<aside class="col-md-3">
+				    
 					<div id="aside">
-					</div>     			
+					</div>
+					
+					<div class="pt-3 pl-3 pr-3">
+					<div id="news">
+					</div>
+					</div>
+					
+					<div id="archives">
+					</div>
+					
 				</aside>
 			</div>
 		</main>
@@ -58,6 +70,10 @@
             	src="MasterPage/scripts/add_aside.js"></script>
 		<script type="text/javascript" defer="defer" 
             	src="MasterPage/scripts/gen_articles.js"></script>
+		<script type="text/javascript" defer="defer" 
+            	src="MasterPage/scripts/add_archives.js"></script>
+		<script type="text/javascript" defer="defer" 
+            	src="MasterPage/scripts/add_news.js"></script>
 		<script type="text/javascript" defer="defer" 
             	src="MasterPage/scripts/add_page.js"></script>
 		<script type="text/javascript" defer="defer" 
