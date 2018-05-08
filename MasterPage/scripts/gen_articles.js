@@ -100,6 +100,7 @@ function add_last_article(html_url) {
 				}
 				else {
 					var img = article_last[i].img;
+					var article_url = article_last[i].url;
 				}
 				html_text += add_news(content_url, article_url, title, img, i);
 			}
