@@ -44,3 +44,16 @@ main {
 	width: 100%; 
 	height: auto%;
 }
+
+aside > div > h5 > a:link{
+	color: #6771C0;
+}
+ 
+aside > div > h5 > a:visited{
+	color: #6771C0;
+}
+
+aside > div > h5 > a:hover{
+	color: #FF8E0C;
+	text-decoration:none;
+}
