@@ -63,13 +63,58 @@ function list_type_group (url, html_url) {
 			var html_text = "";
 			for (var i = 0; i < L; i++) {
 				html_text += '<li><a href="#">' + type_group_list[i].type_group + '</a></li>\n';
-			}
-			add_aside(html_url, html_text);
+			}		
+			add_archives(html_url, html_text);
 		}
 	};
 	xmlhttp.open("GET", url, true);
 	xmlhttp.send();
 	
+}
+
+function add_last_article(html_url) {
+	
+	var xmlhttp = new XMLHttpRequest();
+	
+	if ( html_url ) {
+		var json_url = html_url + "MasterPage/json/article_list.json";
+		var content_url = html_url + "MasterPage/news_contents.txt";
+	}
+	else {
+		var json_url = "MasterPage/json/article_list.json";
+		var content_url = "MasterPage/news_contents.txt";
+	}
+	
+	xmlhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			var article_last = JSON.parse(this.responseText);
+			article_last.reverse();
+			var html_text = "";
+			
+			for (var i = 0; i < 2; i++) {
+				var title = article_last[i].articles;
+				var article_url = article_last[i].url;
+				if ( html_url ) {
+					var img = html_url + article_last[i].img;
+				}
+				else {
+					var img = article_last[i].img;
+				}
+				html_text += add_news(content_url, article_url, title, img, i);
+			}
+			
+			if ( document.getElementById ) {
+			
+				var news = document.getElementById ( 'news' );
+
+				if ( news ) {
+					place_in_outerHTML ( news, html_text );
+				}
+			}
+		}
+	};
+	xmlhttp.open("GET", json_url, true);
+	xmlhttp.send();
 }
 
 function list_articles () {
@@ -98,5 +143,6 @@ function list_articles () {
 	};
 	xmlhttp.open("GET", json_url, true);
 	xmlhttp.send();
-	
 }
+
+
