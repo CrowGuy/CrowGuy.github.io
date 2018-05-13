@@ -36,7 +36,7 @@ function add_articles_post (group_size) {
 				}
 			}
 			
-			html_text += add_page(current-1,next,L,group_size);
+			html_text += add_page('index.html?page=',current-1,next,L,group_size);
 			
 			if ( document.getElementById ) {
 			
@@ -62,7 +62,7 @@ function list_type_group (url, html_url) {
 			var L = type_group_list.length;
 			var html_text = "";
 			for (var i = 0; i < L; i++) {
-				html_text += '<li><a href="#">' + type_group_list[i].type_group + '</a></li>\n';
+				html_text += '<li><a href="type_group.html?type=' + type_group_list[i].type_group + '">' + type_group_list[i].type_group + '</a></li>\n';
 			}		
 			add_archives(html_url, html_text);
 		}
@@ -147,4 +147,63 @@ function list_articles () {
 	xmlhttp.send();
 }
 
+function add_articles_group (group_size) {
+	
+	var xmlhttp = new XMLHttpRequest();
+	var json_url = "MasterPage/json/article_list.json";
+	var url = document.location.href;
+	if (url.split('page=').length > 1) {
+		var current = parseInt(url.split('page=')[1]);
+	}
+	else {
+		var current = 0;
+	}
+	
+	var type = url.split('type=')[1].split('?page=')[0];
+	var article_list;
+	xmlhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			article_list = JSON.parse(this.responseText);
+			article_list.reverse();
+			var L = article_list.length;
+			var next = current + 1;
+			var html_text = '<h2 class="type_title text-deeper">' + type + '</h2>\n<hr />\n';
+			var article_group = [];
+			for (var i = 0; i < L; i++) {
+				if (article_list[i].type_group == type) {
+					article_group.push(article_list[i]);
+				}
+			}
+			
+			var total = article_group.length;
+			for (var j = 0; j < total; j++) {
+				if (j == group_size * next) {
+					break;
+				}
+				else {
+					if (parseInt(j/group_size) == current) {
+						var title = article_group[j].articles;
+						var article_url = article_group[j].url;
+						var abstracts = article_group[j].abstracts;
+						var img = article_group[j].img;
+						
+						html_text += add_type_post(title, article_url, abstracts, img);
+					} 
+				}
+			}
+			
+			html_text += add_page('type_group.html?type=' + type + '?page=',current-1,next,total,group_size);
+		
+			if ( document.getElementById ) {
+			
+				var type_group = document.getElementById ( 'type_group' );
 
+				if ( type_group ) {
+					place_in_outerHTML ( type_group, html_text );
+				}
+			}
+		}
+	};
+	xmlhttp.open("GET", json_url, true);
+	xmlhttp.send();
+}

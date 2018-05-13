@@ -1,6 +1,6 @@
 // ******************************************************* add_page
 
-function add_page (pre, next, total, group_size) {
+function add_page (url, pre, next, total, group_size) {
    
 	var page_contents = read_contents ( "MasterPage/page_contents.txt" );
 			
@@ -21,16 +21,16 @@ function add_page (pre, next, total, group_size) {
 		else if (next == 1) {
 			page_contents = page_contents.replace('{{disabled-pre}}', 'disabled');
 			page_contents = page_contents.replace('{{url_pre}}', '#');
-			page_contents = page_contents.replace('{{url_last}}', 'index.html?page=' + next);
+			page_contents = page_contents.replace('{{url_last}}', url + next);
 		}
 		else if (next == total_page) {
 			page_contents = page_contents.replace('{{disabled-last}}', 'disabled');
-			page_contents = page_contents.replace('{{url_pre}}', 'index.html?page=' + pre);
+			page_contents = page_contents.replace('{{url_pre}}', url + pre);
 			page_contents = page_contents.replace('{{url_last}}', '#');
 		}
 		else {
-			page_contents = page_contents.replace('{{url_pre}}', 'index.html?page=' + pre);
-			page_contents = page_contents.replace('{{url_last}}', 'index.html?page=' + next);
+			page_contents = page_contents.replace('{{url_pre}}', url + pre);
+			page_contents = page_contents.replace('{{url_last}}', url + next);
 		}
 		page_contents = page_contents.replace('{{current_page}}', next);
 		
