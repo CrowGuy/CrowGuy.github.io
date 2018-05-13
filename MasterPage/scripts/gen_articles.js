@@ -159,7 +159,7 @@ function add_articles_group (group_size) {
 		var current = 0;
 	}
 	
-	var type = url.split('type=')[1].split('?page=')[0];
+	var type = decodeURI(url).split('type=')[1].split('?page=')[0];
 	var article_list;
 	xmlhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
