@@ -62,7 +62,12 @@ function list_type_group (url, html_url) {
 			var L = type_group_list.length;
 			var html_text = "";
 			for (var i = 0; i < L; i++) {
-				html_text += '<li><a href="type_group.html?type=' + type_group_list[i].type_group + '">' + type_group_list[i].type_group + '</a></li>\n';
+				if (html_url) {
+					html_text += '<li><a href="' + html_url + 'type_group.html?type=' + type_group_list[i].type_group + '">' + type_group_list[i].type_group + '</a></li>\n';
+				}
+				else {
+					html_text += '<li><a href="type_group.html?type=' + type_group_list[i].type_group + '">' + type_group_list[i].type_group + '</a></li>\n';
+				}
 			}		
 			add_archives(html_url, html_text);
 		}
