@@ -1,26 +1,26 @@
 .archives {
-	padding-left: 3%;
+  padding-left: 3%;
 }
 
 .archives > h2 {
-	font-family: "Times New Roman", Arial, Tahoma, Helvetica, "FangSong" , "文泉驛正黑" , "儷黑 Pro", "標楷體", "微軟正黑體" ,sans-serif;
-	font-weight: bold;
+  font-family: 'Times New Roman', Arial, Tahoma, Helvetica, 'FangSong' , '文泉驛正黑' , '儷黑 Pro', '標楷體', '微軟正黑體' ,sans-serif;
+  font-weight: bold;
 }
 
 .archives > p {
-	font-size: 1.2em;
-	font-family: Arial, "文泉驛正黑" , "儷黑 Pro", "微軟正黑體" ,sans-serif;
+  font-size: 1.2em;
+  font-family: Arial, '文泉驛正黑' , '儷黑 Pro', '微軟正黑體' ,sans-serif;
 }
 
 .archives > p > a:link {
-	color: #6771C0;
+  color: #6771C0;
 }
 
 .archives > p > a:visited {
-	color: #6771C0;
+  color: #6771C0;
 }
 
 .archives > p > a:hover {
-	color: #FF8E0C;
-	text-decoration:none;
+  color: #FF8E0C;
+  text-decoration:none;
 }
