@@ -1,9 +1,9 @@
 <!-- blog-post -->
 <div class="blog-post">
-	<h2><a href="{{acticleUrl}}">{{articleTitle}}</a></h2>
-	<p class="blog-meta text-right"><span class="glyphicon glyphicon-calendar"></span>{{Date}}&emsp;&emsp;<span class="glyphicon glyphicon-book"></span>{{typeGroup}}</p>
-	<p class="blog-abstract text-justify">{{Abstract}}</p>
-	<img class="blog-img mx-auto d-block" src="{{articleImg}}" />
-	<a class="btn btn-outline-normal mx-auto d-block w-25" href="{{acticleUrl}}">Read More</a>
+  <h2><a href="{{acticleUrl}}">{{articleTitle}}</a></h2>
+  <p class="blog-meta text-right"><span class="glyphicon glyphicon-calendar"></span>{{Date}}&emsp;&emsp;<span class="glyphicon glyphicon-book"></span>{{typeGroup}}</p>
+  <p class="blog-abstract text-justify">{{Abstract}}</p>
+  <img class="blog-img mx-auto d-block" src="{{articleImg}}" />
+  <a class="btn btn-outline-normal mx-auto d-block w-25" href="{{acticleUrl}}">Read More</a>
 </div>
 <hr />

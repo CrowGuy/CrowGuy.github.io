@@ -1,5 +1,5 @@
 <div class="p-3 mb-3 bg-light rounded">
-    <h4 class="font-italic">About me</h4>
-	<img class="aside_logo img-thumbnail mx-auto d-block" src="{{relative_path}}images/logo.png" />
-    <p class="mb-0 pt-3 text-justify">&emsp;&emsp;我希望透過學習與精進IT 技能讓複雜的生活更簡單點；但是在簡單的生活中，仍然朝各階段的夢想前進。</p>
+  <h4 class="font-italic">About me</h4>
+  <img class="aside_logo img-thumbnail mx-auto d-block" src="{{relative_path}}images/logo.png" />
+  <p class="mb-0 pt-3 text-justify">&emsp;&emsp;我希望透過學習與精進IT 技能讓複雜的生活更簡單點；但是在簡單的生活中，仍然朝各階段的夢想前進。</p>
 </div>
