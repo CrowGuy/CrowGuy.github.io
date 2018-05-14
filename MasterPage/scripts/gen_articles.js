@@ -1,19 +1,17 @@
 function add_articles_post (group_size) {
-	
-	var xmlhttp = new XMLHttpRequest();
-	var json_url = "MasterPage/json/article_list.json";
-	var url = document.location.href;
-	if (url.split('=').length > 1) {
-		var current = parseInt(url.split('=')[1]);
-	}
-	else {
-		var current = 0;
-	}
-	
-	
-	var article_list;
-	xmlhttp.onreadystatechange = function() {
-		if (this.readyState == 4 && this.status == 200) {
+  var xmlhttp = new XMLHttpRequest();
+  var json_url = "MasterPage/json/article_list.json";
+  var url = document.location.href;
+  if (url.split('=').length > 1) {
+    var current = parseInt(url.split('=')[1]);
+  }
+  else {
+    var current = 0;
+  }
+
+  var article_list;
+  xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
 			article_list = JSON.parse(this.responseText);
 			article_list.reverse();
 			var L = article_list.length;
