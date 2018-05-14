@@ -1,56 +1,56 @@
 <!doctype html>
 <html>
-    <head>
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <!-- Bootstrap CSS -->
-        <link type="text/css" rel="Stylesheet" href="../../css/bootstrap.css" />
+  <!-- Bootstrap CSS -->
+  <link type="text/css" rel="Stylesheet" href="../../css/bootstrap.css" />
         
-		<!-- Custom styles for this template -->
-		<link type="text/css" rel="Stylesheet" href="../../css/main.css" />
-		<link type="text/css" rel="Stylesheet" href="../../css/article.css" />
+  <!-- Custom styles for this template -->
+  <link type="text/css" rel="Stylesheet" href="../../css/main.css" />
+  <link type="text/css" rel="Stylesheet" href="../../css/article.css" />
 		
-        <title>CrowGuy's Blog</title>
-		
-    </head>
-    <body onload="add_header('dual_boot.html','../../'); 
-    			  add_footer('../../');
-				  add_aside('../../');
-				  add_last_article('../../');
-				  list_type_group ('../../MasterPage/json/article_type.json','../../');">
-		<!-- Header -->
-		<header>
-			<div id="header">
-			</div>
-		</header>
-		<!-- Contents -->
-		<main role="main" class="container">
-			<div class="row">
-				<div class="col-md-9">
-					<h2 class="post_title text-center">Assign idle GPU device to tensorflow script automatically</h2>
-					<h5 class="date text-right">2018-03-23</h5>
-					<div class="context text-justify">
-						<p>&emsp;&emsp;本文章主要是針對在多GPU的機器上，有多個不同的Tensorflow任務或實驗要進行時，該如何讓機器進行GPU資源的分配，本文章大致上分成三個部分與大家做分享，分別為：</p>
-						<ul>
-							<li>Tensorflow GPU 配置設定的說明</li>
-							<li>Nvidia smi 指令說明</li>
-							<li>自動指派閒置的 GPU 給新的 TensorFlow 任務</li>
-						</ul>
-						<p>&emsp;&emsp;在 Tensorflow GPU 配置設定說明的部份，我們會以 Tensorflow 官方網站<a href="https://www.tensorflow.org/programmers_guide/using_gpu">[1]</a>的內容為主；Nvidia smi 指令說明則以Nvidia 官方<a href="http://nvidia.custhelp.com/app/answers/detail/a_id/3751/~/useful-nvidia-smi-queries">[2]</a>對於 nvidia-smi 的使用詳加說明；最後一個部份我們會分享我們如何利用上述兩個部份，來達到 GPU 資源的自動分配。無論哪個部分有問題都歡迎各位用力鞭策，以便小弟更深入的學習與修正，如果對於前兩個部分已經相當熟悉的讀者，建議可以直接閱讀第三部分。</p>
+  <title>CrowGuy's Blog</title>		
+</head>
+<body onload="add_header('dual_boot.html','../../'); 
+            add_footer('../../');
+            add_aside('../../');
+            add_last_article('../../');
+            list_type_group ('../../MasterPage/json/article_type.json','../../');">
+
+  <!-- Header -->
+  <header>
+    <div id="header">
+    </div>
+  </header>
+  <!-- Contents -->
+  <main role="main" class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <h2 class="post_title text-center">Assign idle GPU device to tensorflow script automatically</h2>
+        <h5 class="date text-right">2018-03-23</h5>
+        <div class="context text-justify">
+          <p>&emsp;&emsp;本文章主要是針對在多GPU的機器上，有多個不同的Tensorflow任務或實驗要進行時，該如何讓機器進行GPU資源的分配，本文章大致上分成三個部分與大家做分享，分別為：</p>
+          <ul>
+            <li>Tensorflow GPU 配置設定的說明</li>
+            <li>Nvidia smi 指令說明</li>
+            <li>自動指派閒置的 GPU 給新的 TensorFlow 任務</li>
+          </ul>
+          <p>&emsp;&emsp;在 Tensorflow GPU 配置設定說明的部份，我們會以 Tensorflow 官方網站<a href="https://www.tensorflow.org/programmers_guide/using_gpu">[1]</a>的內容為主；Nvidia smi 指令說明則以Nvidia 官方<a href="http://nvidia.custhelp.com/app/answers/detail/a_id/3751/~/useful-nvidia-smi-queries">[2]</a>對於 nvidia-smi 的使用詳加說明；最後一個部份我們會分享我們如何利用上述兩個部份，來達到 GPU 資源的自動分配。無論哪個部分有問題都歡迎各位用力鞭策，以便小弟更深入的學習與修正，如果對於前兩個部分已經相當熟悉的讀者，建議可以直接閱讀第三部分。</p>
 						
-						<h4>Tensorflow using GPU  <a href="https://www.tensorflow.org/programmers_guide/using_gpu">[1]</a></h4>
-						<p>&emsp;&emsp;TensorFlow 支援 CPU 和 GPU 來進行運算，針對這兩種設備 TensorFlow 以字串的方式來呈現，如下方所示；同時擁有 CPU 和 GPU 時，Tensorflow 會優先將 operation 指派給GPU來做運算。</p>
-						<ul>
-							<li> “/cpu:0”：機器的 CPU。</li>
-							<li>“/device:GPU:0”：機器的第一個 GPU。</li>
-							<li>“/device:GPU:1”：機器的第二個 GPU，依此類推。</li>
-						</ul>
+          <h4>Tensorflow using GPU  <a href="https://www.tensorflow.org/programmers_guide/using_gpu">[1]</a></h4>
+          <p>&emsp;&emsp;TensorFlow 支援 CPU 和 GPU 來進行運算，針對這兩種設備 TensorFlow 以字串的方式來呈現，如下方所示；同時擁有 CPU 和 GPU 時，Tensorflow 會優先將 operation 指派給GPU來做運算。</p>
+          <ul>
+            <li> “/cpu:0”：機器的 CPU。</li>
+            <li>“/device:GPU:0”：機器的第一個 GPU。</li>
+            <li>“/device:GPU:1”：機器的第二個 GPU，依此類推。</li>
+          </ul>
 						
-						<h5>Manual device placement (手動配置設備)</h5>
-						<p>&emsp;&emsp;如果我們要讓特定的運算配置於指定的設備，我們可以使用 with tf.device 建力設備環境，在這個環境底下的運算皆會以環境指定的設備來運行。</p>
-						<pre><code># 建立一個 graph.
+          <h5>Manual device placement (手動配置設備)</h5>
+          <p>&emsp;&emsp;如果我們要讓特定的運算配置於指定的設備，我們可以使用 with tf.device 建力設備環境，在這個環境底下的運算皆會以環境指定的設備來運行。</p>
+<pre><code># 建立一個 graph.
 with tf.device('/cpu:0'):
     a = tf.constant([1.0, 2.0, 3.0, 4.0, 5.0, 6.0], shape=[2, 3], name='a')
     b = tf.constant([1.0, 2.0, 3.0, 4.0, 5.0, 6.0], shape=[3, 2], name='b')
@@ -60,7 +60,7 @@ sess = tf.Session(config=tf.ConfigProto(log_device_placement=True))
 # 運行這個 op.
 print(sess.run(c))</pre></code>
 
-						<p>a 和 b 皆被分配至 cpu:0 進行運算；而 c 沒有被指定設備，TensorFlow 運行時會自動配置 GPU:0 執行該運算。</p>
+          <p>a 和 b 皆被分配至 cpu:0 進行運算；而 c 沒有被指定設備，TensorFlow 運行時會自動配置 GPU:0 執行該運算。</p>
 <pre><code>Device mapping:
 /job:localhost/replica:0/task:0/device:GPU:0 -> device: 0, name: Tesla K40c, pci bus
 id: 0000:05:00.0
@@ -70,15 +70,15 @@ MatMul: /job:localhost/replica:0/task:0/device:GPU:0
 [[ 22.  28.]
  [ 49.  64.]]</pre></code>
  
-						<h5>Allowing GPU memory growth</h5>
-						<p>&emsp;&emsp;TensorFlow 預設會占用所有 GPU 的記憶體資源(取決於 CUDA_VISIBLE_DEVICES 這個系統變量)。這樣個做法可以減少記憶體破碎(memory fragmentation)的問題，更有效地利用 GPU 記憶體資源。但在某些情況下，處理程序僅需配置部分的記憶體，或者是根據處理程序的需求來增加記憶體的使用量。Tensorflow 在 Session 上提供了兩個 Config 參數選項來進行控制。</p>
-						<p>&emsp;&emsp;「allow_growth」選項，基於運行時配置的GPU記憶體分配更多的 GPU 記憶體：剛開始，此設定會使程序所分配的記憶體非常小，但隨著 Session 的運行和更多的GPU記憶體需求，擴展 TensorFlow 所需要的 GPU 記憶體區域。此設定並不會釋放記憶體，所以會導致較糟糕的記憶體碎片。要開啟此選項，請在 ConfigProto 中設定為：</p>
+          <h5>Allowing GPU memory growth</h5>
+          <p>&emsp;&emsp;TensorFlow 預設會占用所有 GPU 的記憶體資源(取決於 CUDA_VISIBLE_DEVICES 這個系統變量)。這樣個做法可以減少記憶體破碎(memory fragmentation)的問題，更有效地利用 GPU 記憶體資源。但在某些情況下，處理程序僅需配置部分的記憶體，或者是根據處理程序的需求來增加記憶體的使用量。Tensorflow 在 Session 上提供了兩個 Config 參數選項來進行控制。</p>
+          <p>&emsp;&emsp;「allow_growth」選項，基於運行時配置的GPU記憶體分配更多的 GPU 記憶體：剛開始，此設定會使程序所分配的記憶體非常小，但隨著 Session 的運行和更多的GPU記憶體需求，擴展 TensorFlow 所需要的 GPU 記憶體區域。此設定並不會釋放記憶體，所以會導致較糟糕的記憶體碎片。要開啟此選項，請在 ConfigProto 中設定為：</p>
 <pre><code>config = tf.ConfigProto()
 config.gpu_options.allow_growth = True
 session = tf.Session(config=config, ...)</pre></code>
 						
-						<h5>Using a single GPU on a multi-GPU system</h5>
-						<p>&emsp;&emsp;當我們的系統中有多個 GPU 時，TensorFlow 預設會選擇低 ID 的 GPU；如果我們想在其他 GPU 上運行，可以透過 with tf.device 來做指派：</p>
+          <h5>Using a single GPU on a multi-GPU system</h5>
+          <p>&emsp;&emsp;當我們的系統中有多個 GPU 時，TensorFlow 預設會選擇低 ID 的 GPU；如果我們想在其他 GPU 上運行，可以透過 with tf.device 來做指派：</p>
 <pre><code># 建立一個 graph.
 with tf.device('/gpu:2'):
     a = tf.constant([1.0, 2.0, 3.0, 4.0, 5.0, 6.0], shape=[2, 3], name='a')
@@ -88,11 +88,11 @@ with tf.device('/gpu:2'):
 sess = tf.Session(config=tf.ConfigProto(log_device_placement=True))
 # 運行這個 op.
 print(sess.run(c))</pre></code>	
-						<p>如果我們指派的設備不存在，我們會得到 InvalidArgumentError:</p>
+          <p>如果我們指派的設備不存在，我們會得到 InvalidArgumentError:</p>
 <pre><code>InvalidArgumentError: Invalid argument: Cannot assign a device to node 'b':
 Could not satisfy explicit device specification '/device:GPU:2'
 [[Node: b = Const[dtype=DT_FLOAT, value=Tensor<span><</span>type: float shape: [3,2] values: 1 2 3...>, _device="/device:GPU:2"]()]]</pre></code>
-						<p>如果我們想避免我們所指派的設備不存在時，讓 TensorFlow 自動幫我們選擇一個存在且可以支援的設備運行操作，可以透過在建立 Session 時，在 Config 的參數設定中加入 allow_soft_placement = True。</p>
+          <p>如果我們想避免我們所指派的設備不存在時，讓 TensorFlow 自動幫我們選擇一個存在且可以支援的設備運行操作，可以透過在建立 Session 時，在 Config 的參數設定中加入 allow_soft_placement = True。</p>
 <pre><code># 建立一個 graph.
 with tf.device('/gpu:2'):
     a = tf.constant([1.0, 2.0, 3.0, 4.0, 5.0, 6.0], shape=[2, 3], name='a')
@@ -106,8 +106,8 @@ sess = tf.Session(config=tf.ConfigProto(
 # 運行這個 op.
 print(sess.run(c))</pre></code>
 
-						<h5>Using multiple GPUs</h5>
-						<p>&emsp;&emsp;如果我們想在多塊 GPU 上運行 TensorFlow，我們可以利用 multi towers 模式建構我們的模型，例如：</p>
+          <h5>Using multiple GPUs</h5>
+          <p>&emsp;&emsp;如果我們想在多塊 GPU 上運行 TensorFlow，我們可以利用 multi towers 模式建構我們的模型，例如：</p>
 <pre><code># 建立一個 graph.
 c = []
 for d in ['/gpu:2', '/gpu:3']:
@@ -121,7 +121,7 @@ with tf.device('/cpu:0'):
 sess = tf.Session(config=tf.ConfigProto(log_device_placement=True))
 # 運行這個 op.
 print(sess.run(sum))</pre></code>
-						<p>輸出結果：</p>
+          <p>輸出結果：</p>
 <pre><code>Device mapping:
 /job:localhost/replica:0/task:0/gpu:0 -> device: 0, name: Tesla K20m, pci bus
 id: 0000:02:00.0
@@ -141,41 +141,41 @@ AddN: /job:localhost/replica:0/task:0/cpu:0
 [[  44.   56.]
  [  98.  128.]])</pre></code>
  
-						<h4>Useful nvidia-smi Queries <a href="http://nvidia.custhelp.com/app/answers/detail/a_id/3751/~/useful-nvidia-smi-queries">[2]</a></h4>
-						<p>&emsp;&emsp;在電腦安裝 cuda 之後，便可以使用 Nvidia 所提供的 nvidia-smi 指令來查詢目前所有 GPU 的使用狀況，如下圖1所示，這邊我們也藉著這個機會把GPU使用表中各個內容的涵義複習一下<a href="http://blog.csdn.net/bruce_0712/article/details/63683787">[3]</a>。</p>
-						<img class="mx-auto d-block context_img" src="../../images/201803/tensorflow_gpu_auto_assign/1.jpg" title="圖1.">
-						<ul>
-							<li>Fan：N/A是風扇轉速，從0~100%之間變動。</li>
-							<li>Temp：攝氏溫度。</li>
-							<li>Perf：效能狀態，P0~P12，P0表示最大效能，P12表示最小效能。</li>
-							<li>Pwr：耗能。</li>
-							<li>Persistence-M：持續模式狀態，持續模式耗能較大，但在啟動時間花費較少，此處顯示的是off狀態。</li>
-							<li>Bus-Id：PCI bus id 以16進制呈現 "domain:bus:device.function”。</li>
-							<li>Disp.A：Display Active，表示 GPU 的顯卡是否初始化。</li>
-							<li>Memory Usage：GPU 記憶體的使用情況。</li>
-							<li>Volatile GPU-Util：浮動的 GPU 利用率。</li>
-						</ul>
-						<p>底下我們則對於nvidia-smi其他詳細的查詢參數簡單說明：</p>
+          <h4>Useful nvidia-smi Queries <a href="http://nvidia.custhelp.com/app/answers/detail/a_id/3751/~/useful-nvidia-smi-queries">[2]</a></h4>
+          <p>&emsp;&emsp;在電腦安裝 cuda 之後，便可以使用 Nvidia 所提供的 nvidia-smi 指令來查詢目前所有 GPU 的使用狀況，如下圖1所示，這邊我們也藉著這個機會把GPU使用表中各個內容的涵義複習一下<a href="http://blog.csdn.net/bruce_0712/article/details/63683787">[3]</a>。</p>
+          <img class="mx-auto d-block context_img" src="../../images/201803/tensorflow_gpu_auto_assign/1.jpg" title="圖1.">
+          <ul>
+            <li>Fan：N/A是風扇轉速，從0~100%之間變動。</li>
+            <li>Temp：攝氏溫度。</li>
+            <li>Perf：效能狀態，P0~P12，P0表示最大效能，P12表示最小效能。</li>
+            <li>Pwr：耗能。</li>
+            <li>Persistence-M：持續模式狀態，持續模式耗能較大，但在啟動時間花費較少，此處顯示的是off狀態。</li>
+            <li>Bus-Id：PCI bus id 以16進制呈現 "domain:bus:device.function”。</li>
+            <li>Disp.A：Display Active，表示 GPU 的顯卡是否初始化。</li>
+            <li>Memory Usage：GPU 記憶體的使用情況。</li>
+            <li>Volatile GPU-Util：浮動的 GPU 利用率。</li>
+          </ul>
+          <p>底下我們則對於nvidia-smi其他詳細的查詢參數簡單說明：</p>
 <pre><code>$ nvidia-smi --query-gpu=timestamp,name,pci.bus_id,driver_version,pstate,temperature.gpu,utilization.gpu,utilization.memory, memory.total,memory.free,memory.used --format=csv</pre></code>
 <pre><code>timestamp, name, pci.bus_id, driver_version, pstate, temperature.gpu, utilization.gpu, utilization.memory, memory.total, memory.free, memory.used
 2018/03/07 08:40:54.080, GeForce GTX 1080, 00000000:01:00.0, 384.111, P8, 44, 0 %, 2 %</pre></code>						
-						<h5>Query  Description</h5>
-						<ul>
-							<li>timestamp：時間戳記，查詢格式為 "YYYY/MM/DD HH:MM:SS.msec.”。</li>
-							<li>name：GPU 的官方產品名稱。</li>
-							<li>pci.bus_id：PCI bus id 以16進制呈現 "domain:bus:device.function”。</li>
-							<li>pstate：GPU 目前的效能狀態，P0~P12，P0 表示最大效能，P12 表示最小效能。</li>
-							<li>temperature.gpu：GPU 的攝氏溫度。</li>
-							<li>utilization.gpu：過去在 GPU 上執行一個或多個內核的採樣週期之時間百分比。</li>
-							<li>utilization.memory：過去在讀取或寫入全域（設備）記憶體的採樣週期之時間百分比。</li>
-							<li>memory.total：所有安裝的 GPU 記憶體總和。</li>
-							<li>memory.free：閒置記憶體的總和。</li>
-							<li>memory.used：目前配置使用中的記憶體總和。</li>
-						</ul>
+          <h5>Query  Description</h5>
+          <ul>
+            <li>timestamp：時間戳記，查詢格式為 "YYYY/MM/DD HH:MM:SS.msec.”。</li>
+            <li>name：GPU 的官方產品名稱。</li>
+            <li>pci.bus_id：PCI bus id 以16進制呈現 "domain:bus:device.function”。</li>
+            <li>pstate：GPU 目前的效能狀態，P0~P12，P0 表示最大效能，P12 表示最小效能。</li>
+            <li>temperature.gpu：GPU 的攝氏溫度。</li>
+            <li>utilization.gpu：過去在 GPU 上執行一個或多個內核的採樣週期之時間百分比。</li>
+            <li>utilization.memory：過去在讀取或寫入全域（設備）記憶體的採樣週期之時間百分比。</li>
+            <li>memory.total：所有安裝的 GPU 記憶體總和。</li>
+            <li>memory.free：閒置記憶體的總和。</li>
+            <li>memory.used：目前配置使用中的記憶體總和。</li>
+          </ul>
 						
-						<h4>Single GPU auto assign script for tensorflow</h4>
-						<p>&emsp;&emsp;一台 GPU server同常會有很多使用者使用，但 GPU 記憶體資源卻是有限的，以我個人目前所接收到的資訊，TensorFlow 和 NVIDIA 並沒有提供相關多個 GPU 資源排程與自動分配的解決方案，所以如何自動化有效地管理多個 GPU 記憶體資源的議題，個人覺得是個非常值得去解決的問題，但我這邊提出一個比較粗糙的方法來解決此問題，本方法在 GPU 資源完全分配完後，並無法提供排程等待功能，使用者需要自行等待 GPU 資源被其他程序釋放後，才可以在透過執行此腳本來獲取 GPU 資源。</p>
-						<p>&emsp;&emsp;為了達到讓新的 TensorFlow 程序自動配置系統中閒置的 GPU，我們必須先得知哪些 GPU 是處於閒置的狀態，而透過上述的 nvidia-smi Queries 指令，便可以讓我們獲得此資訊；得知哪些 GPU 是處於閒置的狀態後，使用 TensorFlow 的 tf.with_device 來配置 GPU 資源，如下方程式碼所示。</p>
+          <h4>Single GPU auto assign script for tensorflow</h4>
+          <p>&emsp;&emsp;一台 GPU server同常會有很多使用者使用，但 GPU 記憶體資源卻是有限的，以我個人目前所接收到的資訊，TensorFlow 和 NVIDIA 並沒有提供相關多個 GPU 資源排程與自動分配的解決方案，所以如何自動化有效地管理多個 GPU 記憶體資源的議題，個人覺得是個非常值得去解決的問題，但我這邊提出一個比較粗糙的方法來解決此問題，本方法在 GPU 資源完全分配完後，並無法提供排程等待功能，使用者需要自行等待 GPU 資源被其他程序釋放後，才可以在透過執行此腳本來獲取 GPU 資源。</p>
+          <p>&emsp;&emsp;為了達到讓新的 TensorFlow 程序自動配置系統中閒置的 GPU，我們必須先得知哪些 GPU 是處於閒置的狀態，而透過上述的 nvidia-smi Queries 指令，便可以讓我們獲得此資訊；得知哪些 GPU 是處於閒置的狀態後，使用 TensorFlow 的 tf.with_device 來配置 GPU 資源，如下方程式碼所示。</p>
 <pre><code>#Gpu_assignScript_auto.py
 import tensorflow as tf
 
@@ -237,74 +237,72 @@ if __name__ == '__main__':
     else:
         print("All of gpus on server are busy!")
 </pre></code>
-						<p>最後，使用底下的指令來執行我們的 TensorFlow 程序。</p>
+          <p>最後，使用底下的指令來執行我們的 TensorFlow 程序。</p>
 <pre><code>$ python Gpu_assignScript_auto.py</pre></code>
 						
-						<h4>Reference</h4>
-						<p class="text-left">[1] <a href="https://www.tensorflow.org/programmers_guide/using_gpu">https://www.tensorflow.org/programmers_guide/using_gpu</a></p>
-						<p class="text-left">[2] <a href="http://nvidia.custhelp.com/app/answers/detail/a_id/3751/~/useful-nvidia-smi-queries">http://nvidia.custhelp.com/app/answers/detail/a_id/3751/~/useful-nvidia-smi-queries</a></p>
-						<p class="text-left">[3] <a href="http://blog.csdn.net/bruce_0712/article/details/63683787">http://blog.csdn.net/bruce_0712/article/details/63683787</a></p>
-					</div>
+          <h4>Reference</h4>
+          <p class="text-left">[1] <a href="https://www.tensorflow.org/programmers_guide/using_gpu">https://www.tensorflow.org/programmers_guide/using_gpu</a></p>
+          <p class="text-left">[2] <a href="http://nvidia.custhelp.com/app/answers/detail/a_id/3751/~/useful-nvidia-smi-queries">http://nvidia.custhelp.com/app/answers/detail/a_id/3751/~/useful-nvidia-smi-queries</a></p>
+          <p class="text-left">[3] <a href="http://blog.csdn.net/bruce_0712/article/details/63683787">http://blog.csdn.net/bruce_0712/article/details/63683787</a></p>
+        </div>
 					
-					<div id="disqus_thread"></div>
+        <div id="disqus_thread"></div>
+        </div>
+        <aside class="col-md-3">
+          <div id="aside">
+          </div>     			
 					
-				</div>
-				<aside class="col-md-3">
-					<div id="aside">
-					</div>     			
+          <div class="pt-3 pl-3 pr-3">
+            <div id="news">
+            </div>
+          </div>
 					
-					<div class="pt-3 pl-3 pr-3">
-					<div id="news">
-					</div>
-					</div>
-					
-					<div id="archives">
-					</div>
-					
-				</aside>
-			</div>
-		</main>
+          <div id="archives">
+          </div>
+        </aside>
+      </div>
+    </main>
 			
-		<!-- Footer -->
-		<footer class="footer">
-			<div id="footer">
-			</div>
-    	</footer>
+    <!-- Footer -->
+    <footer class="footer">
+      <div id="footer">
+      </div>
+    </footer>
 
-		<script type="text/javascript" defer="defer" 
-            	src="../../MasterPage/scripts/place_in_outerHTML.js"></script>
-    	<script type="text/javascript" defer="defer" 
-            	src="../../MasterPage/scripts/IO.js"></script>
-   		<script type="text/javascript" defer="defer" 
-            	src="../../MasterPage/scripts/add_footer.js"></script>
-    	<script type="text/javascript" defer="defer" 
-            	src="../../MasterPage/scripts/add_header.js"></script>
-		<script type="text/javascript" defer="defer" 
-            	src="../../MasterPage/scripts/add_aside.js"></script>
-		<script type="text/javascript" defer="defer" 
-            	src="../../MasterPage/scripts/gen_articles.js"></script>
-		<script type="text/javascript" defer="defer" 
-            	src="../../MasterPage/scripts/add_archives.js"></script>
-		<script type="text/javascript" defer="defer" 
-            	src="../../MasterPage/scripts/add_news.js"></script>
-		<script>
-			/**
-			*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-			*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-			/*
-			var disqus_config = function () {
-				this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-				this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-			};
-			*/
-			(function() { // DON'T EDIT BELOW THIS LINE
-				var d = document, s = d.createElement('script');
-				s.src = 'https://http-crowguy-github-io.disqus.com/embed.js';
-				s.setAttribute('data-timestamp', +new Date());
-				(d.head || d.body).appendChild(s);
-			})();
-		</script>
-		<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-		<script id="dsq-count-scr" src="//http-crowguy-github-io.disqus.com/count.js" async></script>
-    </body>
+    <script type="text/javascript" defer="defer" 
+      src="../../MasterPage/scripts/place_in_outerHTML.js"></script>
+    <script type="text/javascript" defer="defer" 
+            src="../../MasterPage/scripts/IO.js"></script>
+    <script type="text/javascript" defer="defer" 
+            src="../../MasterPage/scripts/add_footer.js"></script>
+    <script type="text/javascript" defer="defer" 
+            src="../../MasterPage/scripts/add_header.js"></script>
+    <script type="text/javascript" defer="defer" 
+            src="../../MasterPage/scripts/add_aside.js"></script>
+    <script type="text/javascript" defer="defer" 
+            src="../../MasterPage/scripts/gen_articles.js"></script>
+    <script type="text/javascript" defer="defer" 
+            src="../../MasterPage/scripts/add_archives.js"></script>
+    <script type="text/javascript" defer="defer" 
+            src="../../MasterPage/scripts/add_news.js"></script>
+    <script>
+      /**
+       *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+       *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+      /*
+      var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+      };
+      */
+      (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://http-crowguy-github-io.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <script id="dsq-count-scr" src="//http-crowguy-github-io.disqus.com/count.js" async></script>
+</body>
 </html>
