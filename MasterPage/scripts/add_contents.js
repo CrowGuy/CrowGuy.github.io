@@ -83,7 +83,7 @@ function addArchives(htmlText) {
 	  let archivesContents = read_contents(pathPrefix + contentsSrc);
       if (archivesContents) {  
         archivesContents = archivesContents.replace('{{archives}}', htmlText);
-        place_in_outerHTML(archives, archivesContents );
+        place_in_outerHTML(archives, archivesContents);
       }
     }
   }  
@@ -101,6 +101,7 @@ function addGroupArchives() {
 	if (this.readyState == 4 && this.status == 200) {
 	  groupList = JSON.parse(this.responseText);
 	  let htmlContents = '';
+	  alert(groupList.length);
 	  for (let i = 0; i < groupList.length; i++) {
 		htmlContents += '<li><a href="' + PATH_PREFIX + 'type_group.html?type='
 		                + groupList[i].type_group + '">' 
