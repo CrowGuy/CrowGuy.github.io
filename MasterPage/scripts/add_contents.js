@@ -80,6 +80,7 @@ function addArchives(htmlText) {
     let archives = document.getElementById('archives');
     if (archives) {
 	  let pathPrefix = relativePath();
+	  alert(pathPrefix + contentsSrc);
 	  let archivesContents = read_contents(pathPrefix + contentsSrc);
       if (archivesContents) {  
         archivesContents = archivesContents.replace('{{archives}}', htmlText);
