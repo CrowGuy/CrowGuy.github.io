@@ -109,7 +109,7 @@ function addGroupArchives() {
 	  addArchives(htmlContents);
 	}
   };
-  xmlhttp.open("GET", JSON_SRC, true);
+  xmlhttp.open("GET", PATH_PREFIX + JSON_SRC, true);
   xmlhttp.send();
 }
 
@@ -142,6 +142,7 @@ function addNews(url, title, img, index) {
  */
 function addLastArticles() {
   const JSON_SRC = 'MasterPage/json/article_list.json';
+  const PATH_PREFIX = relativePath();
   const NUM_LAST = 2;
   let xmlhttp = new XMLHttpRequest();	
   xmlhttp.onreadystatechange = function() {
@@ -164,7 +165,7 @@ function addLastArticles() {
 	  }
 	}
   };
-  xmlhttp.open("GET", JSON_SRC, true);
+  xmlhttp.open("GET", PATH_PREFIX + JSON_SRC, true);
   xmlhttp.send();
 }
 
