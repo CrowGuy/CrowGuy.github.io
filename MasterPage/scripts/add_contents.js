@@ -96,18 +96,16 @@ function addGroupArchives() {
   const JSON_SRC = 'MasterPage/json/article_type.json';
   const PATH_PREFIX = relativePath();
   let xmlhttp = new XMLHttpRequest();
-  let groupList;
   xmlhttp.onreadystatechange = function() {
 	if (this.readyState == 4 && this.status == 200) {
-	  groupList = JSON.parse(this.responseText);
+	  let groupList = JSON.parse(this.responseText);
 	  let htmlContents = '';
-	  alert(groupList.length);
 	  for (let i = 0; i < groupList.length; i++) {
 		htmlContents += '<li><a href="' + PATH_PREFIX + 'type_group.html?type='
 		                + groupList[i].type_group + '">' 
-						+ groupList[i].type_group + '</a></li>\n';
-		addArchives(htmlContents);
+						+ groupList[i].type_group + '</a></li>\n';	
 	  }
+	  addArchives(htmlContents);
 	}
   };
   xmlhttp.open("GET", JSON_SRC, true);
