@@ -4,7 +4,7 @@
   </div>
   <div class="type_post col-8">
     <h4 class="text-justify"><a href="{{acticleUrl}}">{{articleTitle}}</a></h4>
-    <p class="type-abstract text-justify">{{Abstract}}</p>
+    <p class="type-abstract text-justify">{{abstract}}</p>
   </div>
 </div>
 <hr />

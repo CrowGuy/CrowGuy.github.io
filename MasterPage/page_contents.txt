@@ -1,11 +1,11 @@
 <div class="blog-pagination row">
   <div class="col-4 text-right">
-    <a class="btn btn-outline-deeper {{disabled-pre}}" href="{{url_pre}}">Newer</a>
+    <a class="btn btn-outline-deeper {{disabled-pre}}" href="{{urlPre}}">Newer</a>
   </div>
   <div class="col-4 text-center">
-    <h5>Page <span id="current_page">{{current_page}}</span> of <span>{{total_page}}</span></h5>
+    <h5>Page <span id="current_page">{{currentPage}}</span> of <span>{{totalPage}}</span></h5>
   </div>
   <div class="col-4 text-left">
-    <a class="btn btn-outline-deeper {{disabled-last}}" href="{{url_last}}">Older</a>
+    <a class="btn btn-outline-deeper {{disabled-next}}" href="{{urlNext}}">Older</a>
   </div>
 </div>
