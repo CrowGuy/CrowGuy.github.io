@@ -100,9 +100,8 @@ function addGroupArchives() {
   xmlhttp.onreadystatechange = function() {
 	if (this.readyState == 4 && this.status == 200) {
 	  groupList = JSON.parse(this.responseText);
-	  let len = groupList.length;
 	  let htmlContents = '';
-	  for (let i = 0; i < len; i++) {
+	  for (let i = 0; i < groupList.length; i++) {
 		htmlContents += '<li><a href="' + PATH_PREFIX + 'type_group.html?type='
 		                + groupList[i].type_group + '">' 
 						+ groupList[i].type_group + '</a></li>\n';
