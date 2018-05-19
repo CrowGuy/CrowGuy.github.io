@@ -15,11 +15,11 @@
   <title>CrowGuy's Blog</title>
 		
 </head>
-<body onload="add_header('dual_boot.html','../../'); 
-            add_footer('../../');
-            add_aside('../../');
-            add_last_article('../../');
-            list_type_group ('../../MasterPage/json/article_type.json','../../');"">
+<body onload="addHeader();
+            addFooter();
+            addAside();
+            addLastArticles();
+            addGroupArchives();">
 		
   <!-- Header -->
   <header>
@@ -62,44 +62,36 @@ sudo apt-get upgrade</code></pre>
 					
         <div id="disqus_thread"></div>
         </div>
-				
-        <aside class="col-md-3">
-          <div id="aside">
-          </div>     			
+	  </div>		
+      <aside class="col-md-3">
+        <div id="aside">
+        </div>     			
 					
-          <div class="pt-3 pl-3 pr-3">
-            <div id="news">
-            </div>
+        <div class="pt-3 pl-3 pr-3">
+          <div id="news">
           </div>
+        </div>
 					
-          <div id="archives">
-          </div>
-        </aside>
-      </div>
-    </main>
+        <div id="archives">
+        </div>
+      </aside>
+    </div>
+  </main>
 			
-    <!-- Footer -->
-    <footer class="footer">
-      <div id="footer">
-      </div>
-    </footer>
+  <!-- Footer -->
+  <footer class="footer">
+    <div id="footer">
+    </div>
+  </footer>
 
-    <script type="text/javascript" defer="defer" 
-            src="../../MasterPage/scripts/place_in_outerHTML.js"></script>
-    <script type="text/javascript" defer="defer" 
-            src="../../MasterPage/scripts/IO.js"></script>
-    <script type="text/javascript" defer="defer" 
-            src="../../MasterPage/scripts/add_footer.js"></script>
-    <script type="text/javascript" defer="defer" 
-            src="../../MasterPage/scripts/add_header.js"></script>
-    <script type="text/javascript" defer="defer" 
-            src="../../MasterPage/scripts/add_aside.js"></script>
-    <script type="text/javascript" defer="defer" 
-            src="../../MasterPage/scripts/gen_articles.js"></script>
-    <script type="text/javascript" defer="defer" 
-            src="../../MasterPage/scripts/add_archives.js"></script>
-    <script type="text/javascript" defer="defer" 
-            src="../../MasterPage/scripts/add_news.js"></script>
+  <script type="text/javascript" defer="defer" 
+          src="../../MasterPage/scripts/place_in_outerHTML.js"></script>
+  <script type="text/javascript" defer="defer" 
+          src="../../MasterPage/scripts/IO.js"></script>
+  <script type="text/javascript" defer="defer" 
+          src="../../MasterPage/scripts/add_contents.js"></script>
+  <script type="text/javascript" defer="defer" 
+          src="../../MasterPage/scripts/configs.js"></script>
     <script>
       /**
       *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
