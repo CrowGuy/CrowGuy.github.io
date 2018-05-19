@@ -14,12 +14,12 @@
         
   <title>CrowGuy's Blog</title>
 </head>
-<body onload="add_header('type_group.html'); 
-    		add_footer();
-			add_aside();
-			add_last_article();
-			add_articles_group(10)
-    		list_type_group ('MasterPage/json/article_type.json');">
+<body onload="addHeader(); 
+    		addFooter();
+			addAside();
+			addLastArticles();
+			addGroupArchives();
+			addGroupArticles()">
 			
   <!-- Header -->
   <header>
@@ -63,20 +63,8 @@
   <script type="text/javascript" defer="defer" 
           src="MasterPage/scripts/IO.js"></script>
   <script type="text/javascript" defer="defer" 
-          src="MasterPage/scripts/add_footer.js"></script>
+          src="MasterPage/scripts/add_contents.js"></script>
   <script type="text/javascript" defer="defer" 
-          src="MasterPage/scripts/add_header.js"></script>
-  <script type="text/javascript" defer="defer" 
-          src="MasterPage/scripts/add_aside.js"></script>
-  <script type="text/javascript" defer="defer" 
-          src="MasterPage/scripts/gen_articles.js"></script>
-  <script type="text/javascript" defer="defer" 
-          src="MasterPage/scripts/add_type_post.js"></script>
-  <script type="text/javascript" defer="defer" 
-          src="MasterPage/scripts/add_page.js"></script>
-  <script type="text/javascript" defer="defer" 
-          src="MasterPage/scripts/add_archives.js"></script>
-  <script type="text/javascript" defer="defer" 
-          src="MasterPage/scripts/add_news.js"></script>
+          src="MasterPage/scripts/configs.js"></script>
 </body>
 </html>
