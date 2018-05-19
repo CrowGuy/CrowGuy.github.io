@@ -81,7 +81,7 @@ function currentPage() {
  */
 function typeOfGroup() {
   let site = document.location.href;
-  return decodeURI(site).split('type=')[1].split('?page=')[0];;
+  return decodeURI(site).split('type=')[1].split('?page=')[0];
 }
 
 /**settingPageButton
