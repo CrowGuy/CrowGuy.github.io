@@ -340,3 +340,33 @@ function addGroupArticles() {
   xmlhttp.open("GET", JSON_SRC, true);
   xmlhttp.send();
 }
+
+/**listArticles
+ * list articles for archives page.
+ */
+function listArticles() {
+  const JSON_SRC = 'MasterPage/json/article_list.json';
+  let xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+	if (this.readyState == 4 && this.status == 200) {
+	  let articleList = JSON.parse(this.responseText);
+	  articleList.reverse();
+	  let len = articleList.length;
+	  let htmlContents = "";
+	  for (let i = 0; i < len; i++) {
+		htmlContents += '<p><a href="' + articleList[i].url + '">' 
+		                + articleList[i].articles + '</a>&emsp;' 
+						+ articleList[i].date + '</p>\n';
+	  }
+			
+	  if (document.getElementById) {
+		let archivesList = document.getElementById('archives_list');
+		if (archivesList) {
+		  place_in_outerHTML(archivesList, htmlContents);
+		}
+	  }
+    }
+  };
+  xmlhttp.open("GET", JSON_SRC, true);
+  xmlhttp.send();
+}
