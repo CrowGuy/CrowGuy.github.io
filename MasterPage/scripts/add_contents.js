@@ -319,7 +319,7 @@ function addGroupArticles() {
 	    else {
 		  if (parseInt(j/GROUP_SIZE) == current) {
 		    let title = groupArticles[j].articles;
-		    let article_url = groupArticles[j].url;
+		    let url = groupArticles[j].url;
 		    let abstracts = groupArticles[j].abstracts;
 		    let img = groupArticles[j].img;
 		    htmlContents += addTypePost(title, url, abstracts, img);
