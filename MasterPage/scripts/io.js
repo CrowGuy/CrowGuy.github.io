@@ -4,9 +4,9 @@
  * @author DanDavis
  */
 
-var XmlHttpFactories = [
+var XMLHttpFactories = [
   function () {
-	return (new XmlHttpRequest());
+	return (new XMLHttpRequest());
   },
   function () {
 	return (new ActiveXObject('Msxml2.XMLHTTP'));
@@ -24,9 +24,9 @@ var XmlHttpFactories = [
  */
 function createXmlHttpObject() {
   let xmlHttp = false;
-  for (let i = 0; ( i < XmlHttpFactories.length ); i++) {
+  for (let i = 0; ( i < XMLHttpFactories.length ); i++) {
     try {
-      xmlHttp = XmlHttpFactories[i]();
+      xmlHttp = XMLHttpFactories[i]();
     }
     catch (e) {
       continue;
@@ -41,7 +41,7 @@ function createXmlHttpObject() {
  * @param {string} url The file which with html contents.
  */
 function readContents(url) { 
-  var request = createXmlHttpObject();
+  let request = createXmlHttpObject();
   request.open('GET', url, false );
   request.setRequestHeader('Content-Type', 'text/html');
   request.send('');
@@ -65,7 +65,7 @@ function placeInOuterHtml(element, contents) {
 /**placeMasterPage
  * Place generic web page contents.
  */
-function placeMaterPage() {
+function placeMasterPage() {
   addHeader();
   addFooter();
   addAside();
