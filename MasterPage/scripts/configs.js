@@ -1,10 +1,10 @@
-/**
- * @fileoverview Description of file, its uses and information
- * about its dependencies.
+/**configs.js
+ * @fileoverview Some small functions to support add contents js.
  * @author Randy Xu
  */
  
 /**relativePath
+ * Calculate the relative path of current page.
  * @return {string}
  */
 function relativePath() {
@@ -17,6 +17,7 @@ function relativePath() {
 }
 
 /**navSelected
+ * Calculate the navbar settings.
  * @return {dictory}
  */
 function navSelected() {
@@ -50,7 +51,10 @@ function navSelected() {
   return navState;
 }
 
-/**relativePath
+/**countTotalPages
+ * Calculate the total pages count.
+ * @param {number} numItems Total number of items.
+ * @param {number} groupSize The group size of items.
  * @return {number}
  */
 function countTotalPages(numItems, groupSize) {
@@ -65,6 +69,7 @@ function countTotalPages(numItems, groupSize) {
 }
 
 /**currentPage
+ * Calculate the current page number.
  * @return {number}
  */
 function currentPage() {
@@ -77,6 +82,7 @@ function currentPage() {
 }
 
 /**typeOfGroup
+ * Calculate the type of group.
  * @return {number}
  */
 function typeOfGroup() {
@@ -85,6 +91,7 @@ function typeOfGroup() {
 }
 
 /**settingPageButton
+ * Calculate the page button settings.
  * @return {dictory}
  */
 function settingPageButton(url, pre, next, totalPage) {

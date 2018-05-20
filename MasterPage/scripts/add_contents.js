@@ -1,6 +1,5 @@
-/**
- * @fileoverview Description of file, its uses and information
- * about its dependencies.
+/**add_contents.js
+ * @fileoverview Functions to add generic web contents.
  * @author Randy Xu
  */
  
@@ -14,7 +13,7 @@ function addHeader() {
     if (header) {
 	  let pathPrefix = relativePath();
 	  let navState = navSelected();
-	  let headerContents = read_contents(pathPrefix + contentsSrc);
+	  let headerContents = readContents(pathPrefix + contentsSrc);
 	  if (headerContents) {
 	    headerContents = headerContents.replace('{{indexPrefix}}'
 		                                        , pathPrefix);
@@ -28,7 +27,7 @@ function addHeader() {
 		                                        , navState.about);
         headerContents = headerContents.replace('{{archivesNav}}'
 		                                        , navState.archives);					
-        place_in_outerHTML(header, headerContents);
+        placeInOuterHtml(header, headerContents);
 	  }
     }
   }  
@@ -43,9 +42,9 @@ function addFooter() {
     let footer = document.getElementById('footer');
     if (footer) {
 	  let pathPrefix = relativePath();
-	  let footerContents = read_contents(pathPrefix + contentsSrc);
+	  let footerContents = readContents(pathPrefix + contentsSrc);
       if (footerContents) {      
-        place_in_outerHTML(footer, footerContents);
+        placeInOuterHtml(footer, footerContents);
       }
     }
   }  
@@ -60,11 +59,11 @@ function addAside() {
     let aside = document.getElementById('aside');
     if (aside) {
 	  let pathPrefix = relativePath();
-	  let asideContents = read_contents(pathPrefix + contentsSrc);
+	  let asideContents = readContents(pathPrefix + contentsSrc);
       if (asideContents) {
         asideContents = asideContents.replace('{{imageUrlPrefix}}'
 		                                      , pathPrefix);	  
-        place_in_outerHTML(aside, asideContents);
+        placeInOuterHtml(aside, asideContents);
       }
     }
   }  
@@ -80,10 +79,10 @@ function addArchives(htmlText) {
     let archives = document.getElementById('archives');
     if (archives) {
 	  let pathPrefix = relativePath();
-	  let archivesContents = read_contents(pathPrefix + contentsSrc);
+	  let archivesContents = readContents(pathPrefix + contentsSrc);
       if (archivesContents) {  
         archivesContents = archivesContents.replace('{{archives}}', htmlText);
-        place_in_outerHTML(archives, archivesContents);
+        placeInOuterHtml(archives, archivesContents);
       }
     }
   }  
@@ -123,7 +122,7 @@ function addGroupArchives() {
 function addNews(url, title, img, index) {
   const CONTENTS_SRC = 'MasterPage/news_contents.txt';
   const PATH_PREFIX = relativePath();
-  let newsContents = read_contents(PATH_PREFIX + CONTENTS_SRC);
+  let newsContents = readContents(PATH_PREFIX + CONTENTS_SRC);
   if (newsContents) { 
     if (index == 1) {
       newsContents = newsContents.replace('<h4 class="font-italic">最新文章</h4>'
@@ -159,7 +158,7 @@ function addLastArticles() {
       if (document.getElementById) {
 		let news = document.getElementById('news');
         if (news) {
-		  place_in_outerHTML(news, htmlContents);
+		  placeInOuterHtml(news, htmlContents);
 		}
 	  }
 	}
@@ -180,7 +179,7 @@ function addLastArticles() {
  */
 function addBlogPost(title, url, date, typeGroup, abstracts, img) {
   const CONTENTS_SRC = 'MasterPage/blog_post_contents.txt';
-  let blogPostContents = read_contents(CONTENTS_SRC);
+  let blogPostContents = readContents(CONTENTS_SRC);
   if (blogPostContents) {                                 		
     blogPostContents = blogPostContents.replace('{{articleTitle}}', title);
     blogPostContents = blogPostContents.replace('{{acticleUrl}}', url);
@@ -204,7 +203,7 @@ function addBlogPost(title, url, date, typeGroup, abstracts, img) {
  */
 function addPage(url, pre, next, total, groupSize) {
   const CONTENTS_SRC = 'MasterPage/page_contents.txt';
-  let pageContents = read_contents(CONTENTS_SRC);
+  let pageContents = readContents(CONTENTS_SRC);
   if (pageContents) {
     let totalPage = countTotalPages(total, groupSize);
     let pageButtonState = settingPageButton(url, pre, next, totalPage);
@@ -259,7 +258,7 @@ function addArticlePosts() {
       if (document.getElementById) {
 		let articlePost = document.getElementById ('article_post');
         if (articlePost) {
-		  place_in_outerHTML (articlePost, htmlContents);
+		  placeInOuterHtml (articlePost, htmlContents);
 		}
 	  }
 	}
@@ -278,7 +277,7 @@ function addArticlePosts() {
  */
 function addTypePost(title, url, abstracts, img) { 
   const CONTENTS_SRC = 'MasterPage/type_post_contents.txt';
-  let blogPostContents = read_contents(CONTENTS_SRC);
+  let blogPostContents = readContents(CONTENTS_SRC);
   if (blogPostContents) {                                 
     blogPostContents = blogPostContents.replace('{{articleTitle}}', title);
     blogPostContents = blogPostContents.replace('{{acticleUrl}}', url);
@@ -331,7 +330,7 @@ function addGroupArticles() {
 	  if (document.getElementById) {
 	    let groupType = document.getElementById('type_group');
         if (groupType) {
-		  place_in_outerHTML(groupType, htmlContents);
+		  placeInOuterHtml(groupType, htmlContents);
 	    }
 	  }
     }
@@ -361,7 +360,7 @@ function listArticles() {
 	  if (document.getElementById) {
 		let archivesList = document.getElementById('archives_list');
 		if (archivesList) {
-		  place_in_outerHTML(archivesList, htmlContents);
+		  placeInOuterHtml(archivesList, htmlContents);
 		}
 	  }
     }
