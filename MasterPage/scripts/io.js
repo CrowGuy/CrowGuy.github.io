@@ -41,7 +41,7 @@ function createXmlHttpObject() {
  * @param {string} url The file which with html contents.
  */
 function readContents(url) { 
-  let request = createXmlHttpObject();
+  var request = createXmlHttpObject();
   request.open('GET', url, false );
   request.setRequestHeader('Content-Type', 'text/html');
   request.send('');
