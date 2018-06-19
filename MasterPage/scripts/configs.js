@@ -24,29 +24,29 @@ function navSelected() {
   let site = document.location.pathname.split('/').reverse();
   let navState = {};
   switch (site[0]) {
-	case 'index.html':
-	  navState.index = 'active';
-	  navState.about = '';
-	  navState.archives = '';
-	  break;
+    case 'index.html':
+      navState.index = 'active';
+      navState.about = '';
+      navState.archives = '';
+      break;
 	  
-	case 'about.html':
-	  navState.index = '';
-	  navState.about = 'active';
-	  navState.archives = '';
-	  break;
+    case 'about.html':
+      navState.index = '';
+      navState.about = 'active';
+      navState.archives = '';
+      break;
 	  
-	case 'archives.html':
-	  navState.index = '';
-	  navState.about = '';
-	  navState.archives = 'active';
-	  break;
+    case 'archives.html':
+      navState.index = '';
+      navState.about = '';
+      navState.archives = 'active';
+      break;
 	  
-	default:
-	  navState.index = '';
-	  navState.about = '';
-	  navState.archives = '';
-	  break;
+    default:
+      navState.index = '';
+      navState.about = '';
+      navState.archives = '';
+      break;
   }
   return navState;
 }
@@ -97,28 +97,28 @@ function typeOfGroup() {
 function settingPageButton(url, pre, next, totalPage) {
   let pageButtonState = {};
   if (next == 1 && next == totalPage) {
-	pageButtonState.preShow = 'disabled';
+    pageButtonState.preShow = 'disabled';
     pageButtonState.nextShow = 'disabled';
-	pageButtonState.preUrl = '#';
-	pageButtonState.nextUrl = '#';
+    pageButtonState.preUrl = '#';
+    pageButtonState.nextUrl = '#';
   }
   else if (next == 1) {
-	pageButtonState.preShow = 'disabled';
+    pageButtonState.preShow = 'disabled';
     pageButtonState.nextShow = '';
-	pageButtonState.preUrl = '#';
-	pageButtonState.nextUrl = url + next;  
+    pageButtonState.preUrl = '#';
+    pageButtonState.nextUrl = url + next;  
   }
   else if (next == totalPage) {
-	pageButtonState.preShow = '';
+    pageButtonState.preShow = '';
     pageButtonState.nextShow = 'disabled';
-	pageButtonState.preUrl = url + pre;
-	pageButtonState.nextUrl = '#';
+    pageButtonState.preUrl = url + pre;
+    pageButtonState.nextUrl = '#';
   }
   else {
-	pageButtonState.preShow = '';
+    pageButtonState.preShow = '';
     pageButtonState.nextShow = '';
-	pageButtonState.preUrl = url + pre;
-	pageButtonState.nextUrl = url + next; 
+    pageButtonState.preUrl = url + pre;
+    pageButtonState.nextUrl = url + next; 
   }
   return pageButtonState;
 }
